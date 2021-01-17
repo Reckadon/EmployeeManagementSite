@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/navbar.css";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   state = {
@@ -22,22 +23,22 @@ class NavBar extends Component {
   render() {
     return (
       <div id="navbar" className={this.getClass()}>
-        <a href="/">
+        <Link to="/">
           <span className="large fas fa-tasks"></span>
-        </a>
+        </Link>
         <ul>
-          <a href="/">
+          <Link to="/">
             <li>
-              <span className="small fas fa-home"></span>
-              <h4>Home</h4>
+              <span className="small fas fa-digital-tachograph"></span>
+              <h4>Dashboard</h4>
             </li>
-          </a>
-          <a href="/employees">
+          </Link>
+          <Link to="/employees">
             <li>
               <span className="small fas fa-users"></span>
               <h4>Employees</h4>
             </li>
-          </a>
+          </Link>
         </ul>
         <span id="extendButton">
           <span

@@ -15,7 +15,7 @@
   background: linear-gradient(
     225deg,
     rgba(0, 143, 199, 1) 0%,
-    rgba(40, 189, 247, 1) 100%
+    rgb(88, 208, 255) 100%
   );
   width: 100px;
   height: 100vh;
@@ -42,7 +42,7 @@
 }
 ul {
   all: initial;
-  padding: 50px 0px 20px 0px;
+  padding: 27px 0px 20px 0px;
   list-style: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
