@@ -3,9 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import "./styles/topnav.css";
 
 class TopNav extends Component {
-  componentDidUpdate() {
-    console.log("topnav");
-  }
   render() {
     return (
       <nav>

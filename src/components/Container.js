@@ -12,10 +12,14 @@ class Container extends Component {
     return (
       <div id="container">
         <TopNav />
-        <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/employees" component={Employees} />
-        </Switch>
+        <div id="background">
+          <div className="triangle1"></div>
+          <div className="triangle2"></div>
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/employees" component={Employees} />
+          </Switch>
+        </div>
       </div>
     );
   }

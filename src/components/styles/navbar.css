@@ -12,11 +12,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    225deg,
-    rgba(0, 143, 199, 1) 0%,
-    rgb(88, 208, 255) 100%
-  );
+  background: linear-gradient(225deg, rgb(0, 25, 48) 0%, rgb(1, 74, 105) 100%);
   width: 80px;
   height: 100vh;
   overflow: hidden;
@@ -55,7 +51,7 @@ a {
   justify-content: center;
 }
 a.active .fas {
-  color: #00293a;
+  color: #15bdff;
 }
 a > span {
   width: 100%;
@@ -74,7 +70,7 @@ li > span {
 }
 a > span:hover,
 li:hover {
-  background-color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.082);
 }
 h4 {
   all: inherit;
@@ -92,7 +88,7 @@ h4 {
   cursor: pointer;
 }
 #extendButton:hover {
-  background-color: #22ade4;
+  background-color: #ffffff4b;
 }
 .fa-chevron-right {
   transition: transform 0.3s cubic-bezier(0.03, 0.64, 1, 1);
@@ -102,6 +98,7 @@ h4 {
   #navbar {
     position: absolute;
     width: 0px;
+    z-index: 10;
     height: 100%;
   }
   h4 {

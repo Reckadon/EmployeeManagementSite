@@ -1,5 +1,7 @@
+html,
 body {
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -15,4 +17,7 @@ code {
 #root {
   /*Navbar and container are children*/
   display: flex;
+  height: 100%;
+}
+@media only screen and (max-width: 480px) {
 }
