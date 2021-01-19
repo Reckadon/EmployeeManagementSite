@@ -1,0 +1,39 @@
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 143, 199, 1) 0%,
+    rgba(71, 203, 255, 1) 100%
+  );
+  color: var(--nav-foreground);
+  height: 80px;
+}
+nav > span {
+  text-transform: capitalize;
+  font-size: 24px;
+  padding: 20px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+
+.fa-bars {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  nav {
+    height: 60px;
+  }
+  nav > span {
+    color: rgb(244, 255, 255);
+    padding: 0px;
+    font-size: 20px;
+  }
+  .fa-bars {
+    font-size: 25px;
+    display: inline-block;
+    padding: 0px 15px 0px 15px;
+  }
+}

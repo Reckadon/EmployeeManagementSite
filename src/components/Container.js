@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Employees from "./Employees";
+import TopNav from "./TopNav";
+import "./styles/container.css";
 
 class Container extends Component {
   state = {};
+
   render() {
     return (
-      <div>
+      <div id="container">
+        <TopNav />
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route path="/employees" component={Employees} />

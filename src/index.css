@@ -13,5 +13,6 @@ code {
 }
 
 #root {
+  /*Navbar and container are children*/
   display: flex;
 }
