@@ -14,7 +14,7 @@ class Container extends Component {
         <TopNav />
         <Switch>
           <Route exact path="/" component={Dashboard} />
-          <Route path="/employees" component={Employees} />
+          <Route exact path="/employees" component={Employees} />
         </Switch>
       </div>
     );
