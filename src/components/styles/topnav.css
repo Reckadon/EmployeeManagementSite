@@ -5,7 +5,7 @@ nav {
   background: linear-gradient(150deg, rgb(0, 25, 48) 0%, rgb(1, 74, 105) 100%);
   color: var(--nav-foreground);
   min-height: 80px;
-  z-index: 5;
+  z-index: 50;
 }
 nav > span {
   text-transform: capitalize;

@@ -15,10 +15,12 @@ class Container extends Component {
         <div id="background">
           <div className="triangle1"></div>
           <div className="triangle2"></div>
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/employees" component={Employees} />
-          </Switch>
+          <div id="content">
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/employees" component={Employees} />
+            </Switch>
+          </div>
         </div>
       </div>
     );
