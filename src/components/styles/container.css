@@ -1,9 +1,15 @@
 #container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+#flex-container {
   position: sticky;
   top: 0;
-  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 #background {
   height: 100%;
@@ -12,6 +18,7 @@
     rgba(77, 204, 255, 1) 0%,
     rgba(184, 234, 255, 1) 100%
   );
+  position: relative;
 }
 .triangle1,
 .triangle2 {
@@ -19,7 +26,7 @@
 }
 .triangle1 {
   height: 55%;
-  width: 55%;
+  width: 70%;
   clip-path: polygon(0 0, 0 100%, 100% 100%);
   background: linear-gradient(
     to right bottom,
@@ -43,11 +50,20 @@
 }
 
 #content {
-  z-index: 5;
-  background-color: rgb(240, 248, 255);
-  width: 70%;
-  height: 300vh;
+  position: relative;
+  transform: translateY(-95vh);
+  width: 89%;
+  box-sizing: border-box;
+  padding: 50px;
   margin: auto;
+  margin-bottom: -88vh;
+  /* temporary */
+  height: 200vh;
+
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.404);
+  border: 1px solid rgba(163, 249, 255, 0.637);
+  border-radius: 20px;
 }
 
 @media only screen and (max-width: 480px) {

@@ -21,5 +21,21 @@ code {
   display: flex;
   height: 100%;
 }
+/*scrollbar*/
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(1, 74, 105);
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    341deg,
+    rgba(77, 204, 255, 1) 0%,
+    rgba(184, 234, 255, 1) 100%
+  );
+}
+
 @media only screen and (max-width: 480px) {
 }

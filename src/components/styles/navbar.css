@@ -34,7 +34,6 @@
 }
 #navbar > a {
   border-bottom: solid 2px var(--nav-foreground);
-  border-right: solid 2px var(--nav-foreground);
 }
 ul {
   all: initial;
@@ -53,7 +52,7 @@ a {
   justify-content: center;
 }
 a.active .fas {
-  color: #15bdff;
+  color: rgb(77, 204, 255);
 }
 a > span {
   width: 100%;

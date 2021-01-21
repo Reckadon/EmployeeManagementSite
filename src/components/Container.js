@@ -12,15 +12,17 @@ class Container extends Component {
     return (
       <div id="container">
         <TopNav />
-        <div id="background">
-          <div className="triangle1"></div>
-          <div className="triangle2"></div>
-          <div id="content">
-            <Switch>
-              <Route exact path="/" component={Dashboard} />
-              <Route exact path="/employees" component={Employees} />
-            </Switch>
+        <div id="flex-container">
+          <div id="background">
+            <div className="triangle1"></div>
+            <div className="triangle2"></div>
           </div>
+        </div>
+        <div id="content">
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/employees" component={Employees} />
+          </Switch>
         </div>
       </div>
     );
