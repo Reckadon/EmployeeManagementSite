@@ -56,7 +56,7 @@
   box-sizing: border-box;
   padding: 50px;
   margin: auto;
-  margin-bottom: -88vh;
+  margin-bottom: -87vh;
   /* temporary */
   height: 200vh;
 
@@ -76,5 +76,8 @@
   }
   .triangle2 {
     width: 99%;
+  }
+  #content {
+    transform: translateY(-90vh);
   }
 }
