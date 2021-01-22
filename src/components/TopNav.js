@@ -12,17 +12,36 @@ class TopNav extends Component {
         ></span>
         <Switch>
           <Route exact path="/">
-            <span>Dashboard</span>
+            <span className="pageInfo">Dashboard</span>
           </Route>
           <Route exact path="/employees">
-            <span>Employees</span>
+            <span className="pageInfo">Employees</span>
           </Route>
         </Switch>
+        {this.getContent()}
+        <span id="emptySpan"></span>
       </nav>
     );
   }
+  getContent() {
+    if (window.screen.width > 480) {
+      return (
+        <h1>
+          Employee <em>Management</em> System
+        </h1>
+      );
+    } else {
+      return (
+        <h1>
+          E<em>M</em>S
+        </h1>
+      );
+    }
+  }
   showSideBar() {
     document.getElementById("navbar").classList.add("extended");
+    let Element = document.getElementById("copyright");
+    Element.style.transform = "translateX(0px)";
   }
 }
 

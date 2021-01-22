@@ -14,6 +14,12 @@ class NavBar extends Component {
       for (const element of Element) {
         element.style.display = this.state.extended ? "none" : "inline";
       }
+
+      Element = document.getElementById("copyright");
+      Element.style.transform = this.state.extended
+        ? "translateX(-200px)"
+        : "translateX(0px)";
+
       Element = document.getElementById("chevron");
       Element.style.transform = this.state.extended
         ? "rotate(0deg)"
@@ -22,10 +28,14 @@ class NavBar extends Component {
     } else {
       this.setState({ extended: false });
       document.getElementById("navbar").classList.remove("extended");
+      let Element = document.getElementById("copyright");
+      Element.style.transform = "translateX(-200px)";
     }
   }
   retract() {
     if (window.screen.width < 480) {
+      let Element = document.getElementById("copyright");
+      Element.style.transform = "translateX(-200px)";
       this.setState({ extended: false });
       document.getElementById("navbar").classList.remove("extended");
     }
@@ -73,6 +83,9 @@ class NavBar extends Component {
             </li>
           </NavLink>
         </ul>
+        <em id="copyright-em">
+          <span id="copyright">&copy;Romit Mohane, 2021</span>
+        </em>
         <span id="extendButton" onClick={() => this.extend()}>
           <span id="chevron" className="small fas fa-chevron-right"></span>
         </span>

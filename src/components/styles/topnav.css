@@ -6,7 +6,6 @@ nav {
   color: var(--nav-foreground);
   min-height: 80px;
   z-index: 50;
-  position: relative;
   border-left: solid 2px var(--nav-foreground);
 }
 nav > span {
@@ -14,13 +13,36 @@ nav > span {
   font-size: 22px;
   padding: 20px;
   font-weight: 500;
+  flex: 1;
   color: rgb(255, 255, 255);
+}
+nav > h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
+  margin-right: 70px;
+  font-weight: 400;
+  padding-right: 15px;
+}
+nav > h1 > em {
+  font-weight: 500;
+  color: rgb(77, 204, 255);
+}
+nav > h1 > sup {
+  font-weight: 500;
 }
 
 .fa-bars {
   display: none;
 }
 
+@media only screen and (max-width: 710px) and (min-width: 480px) {
+  nav > h1 {
+    margin: 0px;
+  }
+  #emptySpan {
+    display: none;
+  }
+}
 @media only screen and (max-width: 480px) {
   nav {
     min-height: 60px;
@@ -29,8 +51,16 @@ nav > span {
   nav > span {
     color: rgb(244, 255, 255);
     padding: 0px;
+    flex: 0;
     font-size: 20px;
   }
+  nav > .pageInfo {
+    flex: 1;
+  }
+  nav > h1 {
+    margin: 0px;
+  }
+
   .fa-bars {
     font-size: 25px;
     display: inline-block;

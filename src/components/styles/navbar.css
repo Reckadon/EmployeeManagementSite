@@ -9,7 +9,7 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   background: linear-gradient(225deg, rgb(0, 25, 48) 0%, rgb(1, 74, 105) 100%);
@@ -79,8 +79,20 @@ h4 {
   padding: 3px 10px 0px 10px;
   display: none;
   font-weight: 500;
-  transition: display 5s ease;
 }
+
+#copyright-em {
+  display: flex;
+  width: 190px;
+  justify-content: center;
+  overflow-wrap: initial;
+}
+#copyright {
+  transform: translateX(-200px);
+  transition: all 0.2s cubic-bezier(0.38, 0.88, 0.53, 0.96);
+  color: var(--nav-foreground);
+}
+
 #extendButton {
   border-top: solid 2px var(--nav-foreground);
   display: flex;
@@ -93,6 +105,8 @@ h4 {
 }
 .fa-chevron-right {
   transition: transform 0.3s cubic-bezier(0.03, 0.64, 1, 1);
+}
+@media only screen and (min-width: 480px) {
 }
 
 @media only screen and (max-width: 480px) {
@@ -114,6 +128,11 @@ h4 {
   }
   .small {
     font-size: 25px;
+  }
+  #copyright-em {
+    width: 60vw;
+    font-size: small;
+    transition: 0.2s cubic-bezier(0.07, 0.32, 0.51, 0.99);
   }
   #extendButton {
     padding: 20px 25px 20px 0px;

@@ -62,8 +62,12 @@
 
   backdrop-filter: blur(15px);
   background-color: rgba(255, 255, 255, 0.404);
-  border: 1px solid rgba(163, 249, 255, 0.637);
+  border: 1px solid rgba(255, 255, 255, 0.219);
   border-radius: 20px;
+}
+footer {
+  z-index: 20;
+  background-color: aquamarine;
 }
 
 @media only screen and (max-width: 480px) {
