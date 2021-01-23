@@ -1,5 +1,5 @@
 :root {
-  --accent-color: #008fc7;
+  --accent-color: rgb(0, 25, 48);
   --nav-foreground: rgb(235, 235, 235);
 }
 .fas {
@@ -12,7 +12,11 @@
   box-sizing: content-box;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(225deg, rgb(0, 25, 48) 0%, rgb(1, 74, 105) 100%);
+  background: linear-gradient(
+    225deg,
+    var(--accent-color) 0%,
+    rgb(1, 74, 105) 100%
+  );
   width: 82px;
   height: 100vh;
   overflow: hidden;
@@ -73,7 +77,7 @@ a > span:hover,
 li:hover {
   background-color: rgba(255, 255, 255, 0.082);
 }
-h4 {
+h4.navh4 {
   all: inherit;
   color: var(--nav-foreground);
   padding: 3px 10px 0px 10px;

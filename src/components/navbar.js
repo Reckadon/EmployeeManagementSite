@@ -10,7 +10,7 @@ class NavBar extends Component {
   extend() {
     if (window.screen.width > 480) {
       let Element;
-      Element = document.getElementsByTagName("h4");
+      Element = document.getElementsByClassName("navh4");
       for (const element of Element) {
         element.style.display = this.state.extended ? "none" : "inline";
       }
@@ -65,7 +65,7 @@ class NavBar extends Component {
             <li>
               <span>
                 <span className="small fas fa-digital-tachograph"></span>
-                <h4>Dashboard</h4>
+                <h4 className="navh4">Dashboard</h4>
               </span>
             </li>
           </NavLink>
@@ -78,7 +78,7 @@ class NavBar extends Component {
             <li>
               <span>
                 <span className="small fas fa-users"></span>
-                <h4>Employees</h4>
+                <h4 className="navh4">Employees</h4>
               </span>
             </li>
           </NavLink>

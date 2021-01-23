@@ -2,7 +2,11 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-  background: linear-gradient(150deg, rgb(0, 25, 48) 0%, rgb(1, 74, 105) 100%);
+  background: linear-gradient(
+    150deg,
+    var(--accent-color) 0%,
+    rgb(1, 74, 105) 100%
+  );
   color: var(--nav-foreground);
   min-height: 80px;
   z-index: 50;

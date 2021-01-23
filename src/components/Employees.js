@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import EmployeeList from "./EmployeeList";
+import AddEmployee from "./AddEmployee";
 
 class Employees extends Component {
-  state = {};
   render() {
-    return <EmployeeList />;
+    return (
+      <React.Fragment>
+        <div id="main">
+          <EmployeeList />
+        </div>
+        <div id="side">
+          <AddEmployee />
+        </div>
+      </React.Fragment>
+    );
   }
 }
 
