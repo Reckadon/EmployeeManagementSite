@@ -58,6 +58,7 @@ class AddEmployee extends Component {
     }
     //retracting form
     this.setState({ formVisible: false });
+    this.props.onEmployeeAdded();
     //showing alert
     document.getElementById("alertAdded").style.display = "block";
     setTimeout(() => {

@@ -1,0 +1,7 @@
+#employeesList > table {
+  width: 100%;
+}
+#employeesList > h2 {
+  color: var(--accent-color);
+  text-align: center;
+}

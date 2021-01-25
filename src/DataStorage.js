@@ -18,4 +18,8 @@ export default class Store {
     data.id = Number(data.id) + 1;
     localStorage.setItem("employees", JSON.stringify(data));
   }
+  static getEmployees() {
+    this.initializeStore();
+    return JSON.parse(localStorage.getItem("employees")).employees;
+  }
 }

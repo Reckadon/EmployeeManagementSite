@@ -42,5 +42,8 @@ class Employee {
     const dateEmployed = day + "/" + month + "/" + year;
     this.dateEmployed = dateEmployed;
   }
+  getFullName() {
+    return this.fName + " " + this.lName;
+  }
 }
 export default Employee;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import Employees from "./Employees";
+import Employees from "./EmployeesPage";
 import TopNav from "./TopNav";
 import "./styles/container.css";
 
