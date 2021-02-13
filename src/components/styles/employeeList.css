@@ -11,6 +11,7 @@
   background-color: rgba(0, 94, 131, 0.082);
   text-align: left;
   font-size: 17px;
+  overflow-x: hidden;
 }
 #employeesList th:nth-child(1) {
   border-top-left-radius: 8px;
@@ -38,4 +39,16 @@
 }
 #employeesList td:nth-child(2) {
   font-weight: 500;
+}
+@media only screen and (max-width: 480px) {
+  #employeesList thead {
+    font-size: 15px;
+    font-weight: 300;
+  }
+  #employeesList th:nth-child(3) {
+    display: none;
+  }
+  #employeesList td:nth-child(3) {
+    display: none;
+  }
 }

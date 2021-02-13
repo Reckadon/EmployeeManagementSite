@@ -72,7 +72,7 @@
 #side {
   background-color: rgba(0, 94, 131, 0.151);
   flex: 2;
-  padding: 20px;
+  padding: 13px;
   border-radius: 5px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -81,6 +81,12 @@
   align-items: center;
 }
 
+@media only screen and (max-width: 720px) {
+  #content {
+    width: 100%;
+    flex-direction: column;
+  }
+}
 @media only screen and (max-width: 480px) {
   #container {
     height: 100%;
@@ -93,8 +99,18 @@
     width: 99%;
   }
   #content {
-    transform: translateY(-90vh);
+    transform: translateY(calc(-100vh + 57px));
     width: 100%;
     flex-direction: column;
+  }
+  #main {
+    flex: 9;
+    padding: 5px;
+    padding-top: 20px;
+  }
+  #side {
+    border-radius: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 }
