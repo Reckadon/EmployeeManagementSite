@@ -16,9 +16,11 @@ const EmployeeRow = ({ employee }) => {
   );
   return (
     <tr>
+      <td>{employeeObj.id}</td>
       <td>{employeeObj.getFullName()}</td>
       <td>{employeeObj.age}</td>
-      <td>{employeeObj.salary}</td>
+      <td>{employeeObj.dateEmployed}</td>
+      <td>{employeeObj.designation}</td>
     </tr>
   );
 };

@@ -16,9 +16,11 @@ class EmployeeList extends Component {
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Age</th>
-            <th>Salary</th>
+            <th>Date Hired</th>
+            <th>Designation</th>
           </tr>
         </thead>
         <tbody>{this.getEmployeeRows(employees)}</tbody>

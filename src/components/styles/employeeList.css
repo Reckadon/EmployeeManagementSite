@@ -1,7 +1,37 @@
+#employeesList {
+  min-height: 40%;
+  background-color: rgba(0, 94, 131, 0.068);
+  border-radius: 8px;
+}
 #employeesList > table {
   width: 100%;
+  border-collapse: collapse;
 }
-#employeesList > h2 {
+#employeesList thead {
+  background-color: rgba(0, 94, 131, 0.082);
+  text-align: left;
+  font-size: 17px;
+}
+#employeesList th:nth-child(1) {
+  border-top-left-radius: 8px;
+}
+#employeesList th:nth-last-child(1) {
+  border-top-right-radius: 8px;
+}
+#employeesList th,
+#employeesList h2 {
   color: var(--accent-color);
-  text-align: center;
+}
+#employeesList td,
+#employeesList th {
+  padding: 10px;
+}
+#employeesList td {
+  text-transform: capitalize;
+  border-top: 1px solid var(--nav-foreground);
+  border-bottom: 1px solid var(--nav-foreground);
+  padding-left: 15px;
+}
+#employeesList td:nth-child(2) {
+  font-weight: 500;
 }

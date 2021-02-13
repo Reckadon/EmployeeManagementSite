@@ -50,9 +50,10 @@
 }
 
 #content {
+  /*main box*/
   position: relative;
   transform: translateY(-95vh);
-  width: 93%;
+  width: 95%;
   box-sizing: border-box;
   margin: auto;
   margin-bottom: -87vh;
