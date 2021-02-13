@@ -20,19 +20,23 @@ nav > span {
   flex: 1;
   color: rgb(255, 255, 255);
 }
+nav > .pageInfo {
+  padding-right: 0px;
+}
 nav > h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
-  margin-right: 70px;
+  margin-right: 60px;
   font-weight: 400;
   padding-right: 15px;
 }
 nav > h1 > em {
   font-weight: 500;
-  color: rgb(77, 204, 255);
-}
-nav > h1 > sup {
-  font-weight: 500;
+  color: transparent;
+  background: linear-gradient(290deg, rgb(152, 226, 255), rgb(61, 132, 255));
+  background-size: 400% 400%;
+  background-clip: text;
+  animation: rotateGradient 3s linear infinite alternate;
 }
 
 .fa-bars {

@@ -17,6 +17,16 @@ class TopNav extends Component {
           <Route exact path="/employees">
             <span className="pageInfo">Employees</span>
           </Route>
+          <Route
+            exact
+            path="/employees/:name"
+            component={({ match }) => (
+              <span className="pageInfo">{this.getFormattedName(match)}</span>
+            )}
+          ></Route>
+          <Route
+            component={() => <span className="pageInfo">Page Not Found</span>}
+          ></Route>
         </Switch>
         {this.getContent()}
         <span id="emptySpan"></span>
@@ -24,7 +34,7 @@ class TopNav extends Component {
     );
   }
   getContent() {
-    if (window.screen.width > 480) {
+    if (window.screen.width > 630) {
       return (
         <h1>
           Employee <em>Management</em> System
@@ -42,6 +52,16 @@ class TopNav extends Component {
     document.getElementById("navbar").classList.add("extended");
     let Element = document.getElementById("copyright");
     Element.style.transform = "translateX(0px)";
+  }
+  getFormattedName(match) {
+    let name = match.params.name;
+
+    if (isNaN(Number(name.slice(-1)))) return "Page Not Found";
+
+    name = name.slice(0, -2);
+    let formatted = name.slice(0, name.indexOf("-"));
+    formatted += " " + name.slice(name.indexOf("-") + 1);
+    return formatted;
   }
 }
 

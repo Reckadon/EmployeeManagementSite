@@ -26,8 +26,8 @@ class Employee {
     onLeave
   ) {
     this.id = id;
-    this.fName = fName;
-    this.lName = lName;
+    this.fName = fName.toLowerCase();
+    this.lName = lName.toLowerCase();
     this.age = age;
     this.salary = salary;
     this.designation = designation;

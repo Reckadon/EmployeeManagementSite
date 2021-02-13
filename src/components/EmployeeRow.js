@@ -1,5 +1,6 @@
 import Employee from "../EmployeeClass";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const EmployeeRow = ({ employee }) => {
   const employeeObj = new Employee(
@@ -17,7 +18,13 @@ const EmployeeRow = ({ employee }) => {
   return (
     <tr>
       <td>{employeeObj.id}</td>
-      <td>{employeeObj.getFullName()}</td>
+      <td>
+        <Link
+          to={`employees/${employeeObj.fName}-${employeeObj.lName}-${employeeObj.id}`}
+        >
+          {employeeObj.getFullName()}
+        </Link>
+      </td>
       <td>{employeeObj.age}</td>
       <td>{employeeObj.dateEmployed}</td>
       <td>{employeeObj.designation}</td>
