@@ -23,6 +23,7 @@
   color: var(--accent-color);
 }
 #employeesList h2 {
+  margin: 0px;
   padding: 20px;
 }
 #employeesList td,
