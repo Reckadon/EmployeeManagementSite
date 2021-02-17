@@ -47,12 +47,13 @@ class NavBar extends Component {
         <Link
           to="/"
           aria-label="Dashboard"
+          title="Dashboard"
           onClick={() => {
             this.retract();
           }}
         >
           <span>
-            <span title="Dashboard" className="large fas fa-tasks"></span>
+            <span className="large fas fa-tasks"></span>
           </span>
         </Link>
         <ul>

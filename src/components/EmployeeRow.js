@@ -21,6 +21,8 @@ const EmployeeRow = ({ employee }) => {
       <td>
         <Link
           to={`employees/${employeeObj.fName}-${employeeObj.lName}-${employeeObj.id}`}
+          title="Go to Profile"
+          aria-label="Go to Profile"
         >
           {employeeObj.getFullName()}
         </Link>
