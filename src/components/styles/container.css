@@ -65,6 +65,30 @@
   border: 1px solid rgba(255, 255, 255, 0.219);
   border-radius: 20px;
 }
+/* loading screen */
+#loading {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(1 51 79);
+}
+#loading > .fa-sync-alt {
+  font-size: 60px;
+  margin-right: 6px;
+  color: rgb(1 51 79);
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 #main {
   flex: 8;
   padding: 20px;

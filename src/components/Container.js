@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import Employees from "./EmployeesPage";
 import TopNav from "./TopNav";
 import Error404 from "./Error404";
+import LoadingSpinner from "./LoadingSpinner";
 import "./styles/container.css";
+const Dashboard = lazy(() => import("./Dashboard"));
+const Employees = lazy(() => import("./EmployeesPage"));
 
 class Container extends Component {
   render() {
@@ -19,8 +20,16 @@ class Container extends Component {
         </div>
         <div id="content">
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/employees" component={Employees} />
+            <Route exact path="/">
+              <Suspense fallback={<LoadingSpinner />}>
+                <Dashboard />
+              </Suspense>
+            </Route>
+            <Route exact path="/employees">
+              <Suspense fallback={<LoadingSpinner />}>
+                <Employees />
+              </Suspense>
+            </Route>
             <Route component={Error404} />
           </Switch>
         </div>

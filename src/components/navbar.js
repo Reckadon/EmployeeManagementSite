@@ -46,18 +46,21 @@ class NavBar extends Component {
       <div id="navbar" className={this.getClass()}>
         <Link
           to="/"
+          aria-label="Dashboard"
           onClick={() => {
             this.retract();
           }}
         >
           <span>
-            <span className="large fas fa-tasks"></span>
+            <span title="Dashboard" className="large fas fa-tasks"></span>
           </span>
         </Link>
         <ul>
           <NavLink
             exact
             to="/"
+            aria-label="Dashboard"
+            title="Dashboard"
             onClick={() => {
               this.retract();
             }}
@@ -71,6 +74,8 @@ class NavBar extends Component {
           </NavLink>
           <NavLink
             to="/employees"
+            aria-label="Employees"
+            title="Employees"
             onClick={() => {
               this.retract();
             }}
@@ -86,7 +91,11 @@ class NavBar extends Component {
         <em id="copyright-em">
           <span id="copyright">&copy;Romit Mohane, 2021</span>
         </em>
-        <span id="extendButton" onClick={() => this.extend()}>
+        <span
+          title="Expand/Retract"
+          id="extendButton"
+          onClick={() => this.extend()}
+        >
           <span id="chevron" className="small fas fa-chevron-right"></span>
         </span>
       </div>

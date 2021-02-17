@@ -37,6 +37,11 @@
   border-bottom: 1px solid var(--nav-foreground);
   padding-left: 15px;
 }
+#employeesList td > a {
+  /* a tags are flex items*/
+  justify-content: start;
+}
+
 #employeesList td:nth-child(2) {
   font-weight: 500;
 }

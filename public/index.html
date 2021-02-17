@@ -13,7 +13,12 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link href="./fontawesome-web/css/solid.min.css" rel="stylesheet" />
-    <link href="./fontawesome-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link
+      href="./fontawesome-web/css/fontawesome.min.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
     <title>Employee Management System</title>
   </head>
   <body>
