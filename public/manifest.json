@@ -1,6 +1,7 @@
 {
   "short_name": "Employee Management System",
   "name": "Employee Management System",
+  "description": "An Employee Management PWA personal project.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,9 @@
       "sizes": "512x512"
     }
   ],
+  "categories": ["productivity", "utilities", "business"],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#a2e4ff"
 }
