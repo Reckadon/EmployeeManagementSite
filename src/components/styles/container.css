@@ -3,8 +3,9 @@
   height: 100vh;
   overflow-x: hidden;
 }
-#flex-container {
+#sticky-container {
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   height: 100%;
   display: flex;

@@ -12,7 +12,8 @@ class Container extends Component {
     return (
       <div id="container">
         <TopNav />
-        <div id="flex-container">
+        {/*sticky*/}
+        <div id="sticky-container">
           <div id="background">
             <div className="triangle1"></div>
             <div className="triangle2"></div>
