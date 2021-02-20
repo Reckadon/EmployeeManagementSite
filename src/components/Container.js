@@ -8,9 +8,6 @@ const Dashboard = lazy(() => import("./Dashboard"));
 const Employees = lazy(() => import("./EmployeesPage"));
 
 class Container extends Component {
-  componentDidMount() {
-    console.log(document.getElementById("background").style);
-  }
   render() {
     return (
       <div id="container">
