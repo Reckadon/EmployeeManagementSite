@@ -2,6 +2,7 @@
   min-height: 40%;
   background-color: rgba(0, 94, 131, 0.068);
   border-radius: 8px;
+  overflow-x: hidden;
 }
 #employeesList > table {
   width: 100%;
@@ -45,6 +46,7 @@
 #employeesList td:nth-child(2) {
   font-weight: 500;
 }
+
 @media only screen and (max-width: 480px) {
   #employeesList thead {
     font-size: 15px;
