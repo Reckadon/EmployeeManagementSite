@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("./Dashboard"));
 const Employees = lazy(() => import("./EmployeesPage"));
 
 class Container extends Component {
+  //handles paths '/' and '/employees' along with any unknown paths, and background
   render() {
     return (
       <div id="container">
@@ -23,7 +24,7 @@ class Container extends Component {
                 <Dashboard />
               </Suspense>
             </Route>
-            <Route exact path="/employees">
+            <Route path="/employees">
               <Suspense fallback={<LoadingSpinner />}>
                 <Employees />
               </Suspense>

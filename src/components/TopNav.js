@@ -10,30 +10,29 @@ class TopNav extends Component {
           onClick={() => this.showSideBar()}
           className="large fas fa-bars"
         ></span>
-        <Switch>
-          <Route exact path="/">
-            <span className="pageInfo">Dashboard</span>
-          </Route>
-          <Route exact path="/employees">
-            <span className="pageInfo">Employees</span>
-          </Route>
-          <Route
-            exact
-            path="/employees/:name"
-            component={({ match }) => (
-              <span className="pageInfo">{this.getFormattedName(match)}</span>
-            )}
-          ></Route>
-          <Route
-            component={() => <span className="pageInfo">Page Not Found</span>}
-          ></Route>
-        </Switch>
-        {this.getContent()}
+        <span className="pageInfo">
+          {/* Dynamic header for page with Router  */}
+          <Switch>
+            <Route exact path="/">
+              Dashboard
+            </Route>
+            <Route exact path="/employees">
+              Employees
+            </Route>
+            <Route
+              exact
+              path="/employees/:name"
+              component={({ match }) => this.checkParam(match)}
+            ></Route>
+            <Route>Page Not Found</Route>
+          </Switch>
+        </span>
+        {this.getName()}
         <span id="emptySpan"></span>
       </nav>
     );
   }
-  getContent() {
+  getName() {
     if (window.screen.width > 630) {
       return (
         <h1>
@@ -53,15 +52,10 @@ class TopNav extends Component {
     let Element = document.getElementById("copyright");
     Element.style.transform = "translateX(0px)";
   }
-  getFormattedName(match) {
+  checkParam(match) {
     let name = match.params.name;
-
     if (isNaN(Number(name.slice(-1)))) return "Page Not Found";
-
-    name = name.slice(0, -2);
-    let formatted = name.slice(0, name.indexOf("-"));
-    formatted += " " + name.slice(name.indexOf("-") + 1);
-    return formatted;
+    return "Employee";
   }
 }
 
