@@ -13,11 +13,12 @@ const EmployeeRow = ({ employee }) => {
     employee.gender,
     employee.number,
     employee.email,
-    employee.onLeave
+    employee.onLeave,
+    employee.dateEmployed
   );
   return (
     <tr>
-      <td>{employeeObj.id}</td>
+      <td title="Employee ID">{employeeObj.id}</td>
       <td>
         <Link
           to={`employees/${employeeObj.fName}-${employeeObj.lName}-${employeeObj.id}`}
@@ -27,9 +28,9 @@ const EmployeeRow = ({ employee }) => {
           {employeeObj.getFullName()}
         </Link>
       </td>
-      <td>{employeeObj.age}</td>
-      <td>{employeeObj.dateEmployed}</td>
-      <td>{employeeObj.designation}</td>
+      <td title="Age in Years">{employeeObj.age}</td>
+      <td title="Date: DD/MM/YY">{employeeObj.dateEmployed}</td>
+      <td title="Employee Designation">{employeeObj.designation}</td>
     </tr>
   );
 };

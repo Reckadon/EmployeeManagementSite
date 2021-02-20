@@ -8,17 +8,17 @@ const Dashboard = lazy(() => import("./Dashboard"));
 const Employees = lazy(() => import("./EmployeesPage"));
 
 class Container extends Component {
+  componentDidMount() {
+    console.log(document.getElementById("background").style);
+  }
   render() {
     return (
       <div id="container">
-        <TopNav />
-        {/*sticky*/}
-        <div id="sticky-container">
-          <div id="background">
-            <div className="triangle1"></div>
-            <div className="triangle2"></div>
-          </div>
+        <div id="background">
+          <div className="triangle1"></div>
+          <div className="triangle2"></div>
         </div>
+        <TopNav />
         <div id="content">
           <Switch>
             <Route exact path="/">

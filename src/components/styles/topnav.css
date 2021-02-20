@@ -9,7 +9,7 @@ nav {
   );
   color: var(--nav-foreground);
   min-height: 80px;
-  z-index: 50;
+  z-index: 500;
   border-left: solid 2px var(--nav-foreground);
 }
 nav > span {

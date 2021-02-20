@@ -44,7 +44,8 @@ class AddEmployee extends Component {
       gender,
       number,
       email,
-      false
+      false,
+      "now"
     );
     Store.addEmployee(employee);
     event.preventDefault();

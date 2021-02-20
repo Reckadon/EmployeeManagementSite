@@ -23,7 +23,8 @@ class Employee {
     gender,
     number,
     email,
-    onLeave
+    onLeave,
+    dateEmployed
   ) {
     this.id = id;
     this.fName = fName.toLowerCase();
@@ -35,12 +36,16 @@ class Employee {
     this.number = number;
     this.email = email;
     this.onLeave = onLeave;
-    const currentTime = new Date();
-    const month = currentTime.getMonth() + 1;
-    const day = currentTime.getDate();
-    const year = currentTime.getFullYear();
-    const dateEmployed = day + "/" + month + "/" + year;
-    this.dateEmployed = dateEmployed;
+    if (dateEmployed === "now") {
+      const currentTime = new Date();
+      const month = currentTime.getMonth() + 1;
+      const day = currentTime.getDate();
+      const year = currentTime.getFullYear();
+      const dateEmployed = day + "/" + month + "/" + year;
+      this.dateEmployed = dateEmployed;
+    } else {
+      this.dateEmployed = dateEmployed;
+    }
   }
   getFullName() {
     return this.fName + " " + this.lName;

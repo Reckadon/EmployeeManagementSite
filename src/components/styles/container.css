@@ -3,21 +3,19 @@
   height: 100vh;
   overflow-x: hidden;
 }
-#sticky-container {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  height: 100%;
-  overflow-x: hidden;
-}
 #background {
   height: 100%;
+  width: inherit;
+  z-index: -1;
   background: linear-gradient(
     341deg,
     rgba(77, 204, 255, 1) 0%,
     rgba(184, 234, 255, 1) 100%
   );
-  position: relative;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  margin-bottom: -100vh;
 }
 .triangle1,
 .triangle2 {
@@ -51,11 +49,10 @@
 #content {
   /*main box*/
   position: relative;
-  transform: translateY(-95vh);
   width: 95%;
+  max-width: 2400px;
   box-sizing: border-box;
-  margin: auto;
-  margin-bottom: -87vh;
+  margin: 26px auto;
   display: flex;
   min-height: 100vh;
 
