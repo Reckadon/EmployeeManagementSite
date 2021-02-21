@@ -4,7 +4,7 @@
   overflow-x: hidden;
 }
 #background {
-  height: 100%;
+  height: 100vh;
   width: inherit;
   z-index: -1;
   background: linear-gradient(
@@ -15,7 +15,7 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  margin-bottom: -100vh;
+  margin-bottom: -100vh; /*should be negative of height for keeping content above it*/
 }
 .triangle1,
 .triangle2 {
