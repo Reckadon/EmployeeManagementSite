@@ -9,6 +9,14 @@ import "./fontawesome-web/css/fontawesome.min.css";
 class App extends Component {
   componentDidMount() {
     Store.initializeStore();
+    this.linkManifest();
+  }
+
+  linkManifest() {
+    const prefix = window.screen.width > 800 ? "" : "mobile-";
+    document
+      .getElementById("manifest-link")
+      .setAttribute("href", `/${prefix}manifest.json`);
   }
 
   render() {
