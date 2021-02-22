@@ -42,6 +42,10 @@
   /* a tags are flex items*/
   justify-content: start;
 }
+#employeesList td > a:focus {
+  outline: none;
+  text-decoration: underline;
+}
 
 #employeesList td:nth-child(2) {
   font-weight: 500;
@@ -60,5 +64,8 @@
   }
   #employeesList td:nth-child(3) {
     display: none;
+  }
+  #employeesList td {
+    padding-left: 10px;
   }
 }

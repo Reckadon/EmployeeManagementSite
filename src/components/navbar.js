@@ -26,39 +26,28 @@ class NavBar extends Component {
         : "rotate(180deg)";
       this.setState({ extended: !this.state.extended });
     } else {
-      this.setState({ extended: false });
-      document.getElementById("navbar").classList.remove("extended");
-      let Element = document.getElementById("copyright");
-      Element.style.transform = "translateX(-200px)";
+      this.retractMobileNavbar();
     }
   }
+  retractMobileNavbar() {
+    this.setState({ extended: false });
+    document.getElementById("navbar").classList.remove("extended");
+    let Element = document.getElementById("copyright");
+    Element.style.transform = "translateX(-200px)";
+    Element = document.getElementById("nav-overlay").style.display = "none";
+  }
+
   retract() {
     if (window.screen.width < 480) {
-      let Element = document.getElementById("copyright");
-      Element.style.transform = "translateX(-200px)";
-      this.setState({ extended: false });
-      document.getElementById("navbar").classList.remove("extended");
+      this.retractMobileNavbar();
     }
   }
 
   render() {
     return (
-      <div id="navbar" className={this.getClass()}>
-        <Link
-          to="/"
-          aria-label="Dashboard"
-          title="Dashboard"
-          onClick={() => {
-            this.retract();
-          }}
-        >
-          <span>
-            <span className="large fas fa-tasks"></span>
-          </span>
-        </Link>
-        <ul>
-          <NavLink
-            exact
+      <React.Fragment>
+        <div id="navbar" className={this.getClass()}>
+          <Link
             to="/"
             aria-label="Dashboard"
             title="Dashboard"
@@ -66,46 +55,74 @@ class NavBar extends Component {
               this.retract();
             }}
           >
-            <li>
-              <span>
-                <span className="small fas fa-digital-tachograph"></span>
-                <h4 className="navh4">Dashboard</h4>
-              </span>
-            </li>
-          </NavLink>
-          <NavLink
-            to="/employees"
-            aria-label="Employees"
-            title="Employees"
-            onClick={() => {
-              this.retract();
+            <span>
+              <span className="large fas fa-tasks"></span>
+            </span>
+          </Link>
+          <ul>
+            <NavLink
+              exact
+              to="/"
+              aria-label="Dashboard"
+              title="Dashboard"
+              onClick={() => {
+                this.retract();
+              }}
+            >
+              <li>
+                <span>
+                  <span className="small fas fa-digital-tachograph"></span>
+                  <h4 className="navh4">Dashboard</h4>
+                </span>
+              </li>
+            </NavLink>
+            <NavLink
+              to="/employees"
+              aria-label="Employees"
+              title="Employees"
+              onClick={() => {
+                this.retract();
+              }}
+            >
+              <li>
+                <span>
+                  <span className="small fas fa-users"></span>
+                  <h4 className="navh4">Employees</h4>
+                </span>
+              </li>
+            </NavLink>
+          </ul>
+          <em id="copyright-em">
+            <span id="copyright">&copy;Romit Mohane, 2021</span>
+          </em>
+          <span
+            title={this.state.extended ? "Retract" : "Extend"}
+            id="extendButton"
+            tabIndex="0"
+            role="button"
+            aria-pressed={this.state.extended}
+            onKeyDown={(e) => {
+              if (e.code === "Enter" || e.code === "Space") this.extend();
             }}
+            onClick={() => this.extend()}
           >
-            <li>
-              <span>
-                <span className="small fas fa-users"></span>
-                <h4 className="navh4">Employees</h4>
-              </span>
-            </li>
-          </NavLink>
-        </ul>
-        <em id="copyright-em">
-          <span id="copyright">&copy;Romit Mohane, 2021</span>
-        </em>
-        <span
-          title="Expand/Retract"
-          id="extendButton"
-          onClick={() => this.extend()}
-        >
-          <span id="chevron" className="small fas fa-chevron-right"></span>
-        </span>
-      </div>
+            <span id="chevron" className="small fas fa-chevron-right"></span>
+          </span>
+        </div>
+        {/* Overlays the whole screen for modal like look */}
+        <div
+          id="nav-overlay"
+          style={{
+            display: this.state.extended ? "block" : "none",
+          }}
+        ></div>
+      </React.Fragment>
     );
   }
 
   getClass() {
     if (this.state.extended) return "extended";
-    else return "";
+    return "";
   }
 }
 

@@ -22,9 +22,13 @@
   overflow: hidden;
   transition: 0.2s cubic-bezier(0.07, 0.32, 0.51, 0.99);
 }
+#navbar * {
+  outline: none;
+}
 #navbar.extended {
   width: 220px;
 }
+
 .fa-tasks {
   position: sticky;
   top: 0;
@@ -39,7 +43,7 @@
 #navbar > a {
   border-bottom: solid 2px var(--nav-foreground);
 }
-ul {
+#navbar ul {
   all: initial;
   padding: 27px 0px 20px 0px;
   list-style: none;
@@ -54,26 +58,28 @@ a {
   display: flex;
   justify-content: center;
 }
-a.active .fas {
+#navbar a.active .fas {
   color: rgb(77, 204, 255);
 }
-a > span {
+#navbar a > span {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-li {
+#navbar li {
   display: flex;
   padding: 10px;
   width: 100%;
   justify-content: space-around;
 }
-li > span {
+#navbar li > span {
   display: flex;
 }
-a > span:hover,
-li:hover {
+#navbar a > li:hover,
+#navbar a > li:focus,
+#navbar a:hover,
+#navbar a:focus {
   background-color: rgba(255, 255, 255, 0.082);
 }
 h4.navh4 {
@@ -103,11 +109,15 @@ h4.navh4 {
   padding: 20px 30px 20px 0px;
   cursor: pointer;
 }
-#extendButton:hover {
+#extendButton:hover,
+#extendButton:focus {
   background-color: #ffffff4b;
 }
 .fa-chevron-right {
   transition: transform 0.3s cubic-bezier(0.03, 0.64, 1, 1);
+}
+#nav-overlay {
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 480px) {
@@ -122,8 +132,18 @@ h4.navh4 {
   }
   #navbar.extended {
     width: 60vw;
-    filter: drop-shadow(200px 0px rgba(0, 0, 0, 0.301));
   }
+  /* overlay */
+  #nav-overlay {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.527);
+  }
+
   .large {
     font-size: 33px;
   }

@@ -13,8 +13,9 @@
   justify-content: center;
   cursor: pointer;
 }
-.sideButton:hover {
-  background-color: rgb(26, 94, 122);
+.sideButton:hover,
+.sideButton:focus {
+  background-color: rgb(39, 121, 156);
 }
 .sideButton:active {
   background-color: rgb(16, 61, 80);
@@ -75,10 +76,15 @@
   border-radius: 5px;
   padding: 7px;
 }
+#addEmployeeForm > form > select:hover,
+#addEmployeeForm > form > select:focus {
+  background-color: rgb(9, 73, 100);
+}
 #addEmployeeForm > form > input#addBtnInput {
   margin: 0px;
 }
-#addEmployeeForm > form > input#addBtnInput:hover {
+#addEmployeeForm > form > input#addBtnInput:hover,
+#addEmployeeForm > form > input#addBtnInput:focus {
   background-color: rgb(26, 94, 122);
 }
 #addEmployeeForm > form > input#addBtnInput:active {

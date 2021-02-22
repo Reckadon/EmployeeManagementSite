@@ -13,6 +13,7 @@ class App extends Component {
   }
 
   linkManifest() {
+    //mobile-manifest has display set to standalone unlike normal manifest which has display set to minimal-ui
     const prefix = window.screen.width > 800 ? "" : "mobile-";
     document
       .getElementById("manifest-link")

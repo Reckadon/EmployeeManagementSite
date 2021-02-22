@@ -68,6 +68,7 @@ class AddEmployee extends Component {
   };
 
   render() {
+    const tabIndex = this.state.formVisible ? "0" : "-1";
     return (
       <React.Fragment>
         <button
@@ -96,6 +97,7 @@ class AddEmployee extends Component {
               value={this.state.fname}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="text"
               id="fname"
@@ -105,6 +107,7 @@ class AddEmployee extends Component {
               value={this.state.lname}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="text"
               id="lname"
@@ -114,6 +117,7 @@ class AddEmployee extends Component {
               value={this.state.age}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="number"
               min="0"
@@ -124,6 +128,7 @@ class AddEmployee extends Component {
               value={this.state.salary}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="number"
               min="0"
@@ -134,6 +139,7 @@ class AddEmployee extends Component {
               value={this.state.designation}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="text"
               id="designation"
@@ -141,6 +147,7 @@ class AddEmployee extends Component {
             <label htmlFor="gender">Gender:</label>
             <select
               id="gender"
+              tabIndex={tabIndex}
               value={this.state.gender}
               onChange={this.handleChange}
             >
@@ -153,6 +160,7 @@ class AddEmployee extends Component {
               value={this.state.number}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="number"
               min="0"
@@ -163,12 +171,18 @@ class AddEmployee extends Component {
               value={this.state.email}
               onChange={this.handleChange}
               required
+              tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="email"
               min="0"
               id="email"
             />
-            <input id="addBtnInput" type="submit" value="Add Employee" />
+            <input
+              tabIndex={tabIndex}
+              id="addBtnInput"
+              type="submit"
+              value="Add Employee"
+            />
           </form>
         </div>
         <div id="alertAdded">
