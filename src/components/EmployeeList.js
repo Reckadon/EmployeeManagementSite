@@ -21,6 +21,7 @@ class EmployeeList extends Component {
             <th>Age</th>
             <th>Date Hired</th>
             <th>Designation</th>
+            <th style={{ width: "1%" }}>Available</th>
           </tr>
         </thead>
         <tbody>{this.getEmployeeRows(employees)}</tbody>

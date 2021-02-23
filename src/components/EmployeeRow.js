@@ -31,6 +31,20 @@ const EmployeeRow = ({ employee }) => {
       <td title="Age in Years">{employeeObj.age}</td>
       <td title="Date: DD/MM/YY">{employeeObj.dateEmployed}</td>
       <td title="Employee Designation">{employeeObj.designation}</td>
+      <td
+        title="Employee Availability"
+        style={{ padding: "0px", textAlign: "center" }}
+      >
+        <span
+          className={`fas fa-${
+            employeeObj.onLeave ? "times-circle" : "check-circle"
+          }`}
+          style={{
+            fontSize: "28px",
+            color: employeeObj.onLeave ? "#ec0000" : "#014968",
+          }}
+        ></span>
+      </td>
     </tr>
   );
 };

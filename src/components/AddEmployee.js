@@ -6,6 +6,7 @@ import Store from "../DataStorage";
 class AddEmployee extends Component {
   state = {
     formVisible: false,
+    showEmployeeAddedAlert: false,
     fname: "",
     lname: "",
     age: "",
@@ -16,6 +17,10 @@ class AddEmployee extends Component {
     email: "",
   };
 
+  showForm = () => {
+    this.setState({ formVisible: !this.state.formVisible });
+    this.resetValues();
+  };
   handleChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
@@ -50,22 +55,27 @@ class AddEmployee extends Component {
     Store.addEmployee(employee);
     event.preventDefault();
     //reseting values
+    this.resetValues();
+    //retracting form
+    this.setState({ formVisible: false });
+    this.props.onEmployeeAdded();
+    //showing alert
+    this.setState({ showEmployeeAddedAlert: true }, () => {
+      setTimeout(() => {
+        this.setState({ showEmployeeAddedAlert: false });
+      }, 3000);
+    });
+  };
+
+  resetValues() {
     for (const x in this.state) {
-      if (x !== "formVisible") {
+      if (x !== "formVisible" && x !== "showEmployeeAddedAlert") {
         this.setState({
           [x]: "",
         });
       }
     }
-    //retracting form
-    this.setState({ formVisible: false });
-    this.props.onEmployeeAdded();
-    //showing alert
-    document.getElementById("alertAdded").style.display = "block";
-    setTimeout(() => {
-      document.getElementById("alertAdded").style.display = "none";
-    }, 3000);
-  };
+  }
 
   render() {
     const tabIndex = this.state.formVisible ? "0" : "-1";
@@ -74,7 +84,7 @@ class AddEmployee extends Component {
         <button
           className="sideButton"
           id="addEmployeeBtn"
-          onClick={() => this.showForm()}
+          onClick={this.showForm}
         >
           <span className="fas fa-user"></span>
           <span>Add New Employee</span>
@@ -155,7 +165,7 @@ class AddEmployee extends Component {
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
-            <label htmlFor="number">Phone Number:</label>
+            <label htmlFor="number">Phone Number: (10 digit)</label>
             <input
               value={this.state.number}
               onChange={this.handleChange}
@@ -163,7 +173,8 @@ class AddEmployee extends Component {
               tabIndex={tabIndex}
               autoComplete={"" + Math.random()}
               type="number"
-              min="0"
+              min="999999999"
+              max="9999999999"
               id="number"
             />
             <label htmlFor="email">Email Address:</label>
@@ -185,14 +196,16 @@ class AddEmployee extends Component {
             />
           </form>
         </div>
-        <div id="alertAdded">
+        <div
+          id="alertAdded"
+          style={{
+            display: this.state.showEmployeeAddedAlert ? "block" : "none",
+          }}
+        >
           <h4 className="alertH4">Employee Added</h4>
         </div>
       </React.Fragment>
     );
-  }
-  showForm() {
-    this.setState({ formVisible: !this.state.formVisible });
   }
 }
 
