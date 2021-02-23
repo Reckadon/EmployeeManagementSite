@@ -9,8 +9,8 @@
   z-index: -1;
   background: linear-gradient(
     341deg,
-    rgba(77, 204, 255, 1) 0%,
-    rgba(184, 234, 255, 1) 100%
+    rgba(77, 204, 255, 1),
+    rgba(184, 234, 255, 1)
   );
   position: sticky;
   position: -webkit-sticky;
