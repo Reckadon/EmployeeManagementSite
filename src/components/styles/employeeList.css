@@ -9,7 +9,7 @@
   border-collapse: collapse;
 }
 #employeesList thead {
-  background-color: rgba(0, 94, 131, 0.082);
+  background-color: rgba(0, 132, 184, 0.116);
   text-align: left;
   font-size: 17px;
   overflow-x: hidden;
@@ -66,16 +66,11 @@
 @media only screen and (max-width: 480px) {
   #employeesList {
     min-height: 20vh;
+    overflow-x: scroll;
   }
   #employeesList thead {
     font-size: 15px;
     font-weight: 300;
-  }
-  #employeesList th:nth-child(3) {
-    display: none;
-  }
-  #employeesList td:nth-child(3) {
-    display: none;
   }
   #employeesList td {
     padding-left: 10px;

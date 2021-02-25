@@ -34,7 +34,9 @@ class NavBar extends Component {
     document.getElementById("navbar").classList.remove("extended");
     let Element = document.getElementById("copyright");
     Element.style.transform = "translateX(-200px)";
-    Element = document.getElementById("nav-overlay").style.display = "none";
+    Element = document.getElementById("nav-overlay").style.visibility =
+      "hidden";
+    Element = document.getElementById("nav-overlay").style.opacity = "0";
   }
 
   retract() {
@@ -46,7 +48,7 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="navbar" className={this.getClass()}>
+        <div id="navbar" className={this.state.extended ? "extended" : ""}>
           <Link
             to="/"
             aria-label="Dashboard"
@@ -113,16 +115,12 @@ class NavBar extends Component {
         <div
           id="nav-overlay"
           style={{
-            display: this.state.extended ? "block" : "none",
+            visibility: this.state.extended ? "visible" : "hidden",
           }}
+          onClick={() => this.retract()}
         ></div>
       </React.Fragment>
     );
-  }
-
-  getClass() {
-    if (this.state.extended) return "extended";
-    return "";
   }
 }
 

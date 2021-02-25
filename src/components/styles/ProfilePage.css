@@ -1,0 +1,15 @@
+.ProfileSection {
+  height: 100%;
+  background-color: rgba(0, 94, 131, 0.068);
+  border-radius: 10px 10px 0px 0px;
+}
+
+.ProfileSection h2 {
+  margin: 0px;
+  text-transform: capitalize;
+  font-weight: 600;
+  background-color: rgba(0, 177, 247, 0.103);
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 2px solid rgba(0, 107, 150, 0.568);
+}

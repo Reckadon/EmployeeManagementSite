@@ -74,6 +74,9 @@ class AddEmployee extends Component {
           [x]: "",
         });
       }
+      if (x === "gender") {
+        this.setState({ [x]: "male" });
+      }
     }
   }
 

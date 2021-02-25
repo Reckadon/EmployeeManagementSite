@@ -1,3 +1,5 @@
+import Employee from "./EmployeeClass";
+
 export default class Store {
   static initializeStore() {
     let data = localStorage.getItem("employees");
@@ -21,5 +23,26 @@ export default class Store {
   static getEmployees() {
     this.initializeStore();
     return JSON.parse(localStorage.getItem("employees")).employees;
+  }
+  static getEmployeeByID(id) {
+    //takes NUMBER ID
+    //returns Employee Object
+    const employeesArray = JSON.parse(localStorage.getItem("employees"))
+      .employees;
+    const employee = employeesArray.find((employee) => employee.id === id);
+    if (employee === undefined) return;
+    return new Employee(
+      employee.id,
+      employee.fName,
+      employee.lName,
+      employee.age,
+      employee.salary,
+      employee.designation,
+      employee.gender,
+      employee.number,
+      employee.email,
+      employee.onLeave,
+      employee.dateEmployed
+    );
   }
 }

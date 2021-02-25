@@ -38,10 +38,7 @@ class Employees extends Component {
             <Suspense fallback={<LoadingSpinner />}>
               {this.isParam(match) ? (
                 <React.Fragment>
-                  <div id="main">
-                    <ProfilePage match={match} />
-                  </div>
-                  <div id="side"></div>
+                  <ProfilePage match={match} />
                 </React.Fragment>
               ) : (
                 <Error404 />

@@ -1,21 +1,9 @@
-import Employee from "../EmployeeClass";
 import React from "react";
 import { Link } from "react-router-dom";
+import Store from "../DataStorage";
 
 const EmployeeRow = ({ employee }) => {
-  const employeeObj = new Employee(
-    employee.id,
-    employee.fName,
-    employee.lName,
-    employee.age,
-    employee.salary,
-    employee.designation,
-    employee.gender,
-    employee.number,
-    employee.email,
-    employee.onLeave,
-    employee.dateEmployed
-  );
+  const employeeObj = Store.getEmployeeByID(Number(employee.id));
   return (
     <tr>
       <td title="Employee ID">{employeeObj.id}</td>

@@ -1,18 +1,21 @@
 import React from "react";
-
-const getFormattedName = (match) => {
-  let name = match.params.name;
-  name = name.slice(0, -2);
-  let formatted = name.slice(0, name.indexOf("-"));
-  formatted += " " + name.slice(name.indexOf("-") + 1);
-  return formatted;
-};
+import Store from "../DataStorage";
+import "./styles/ProfilePage.css";
 
 const ProfilePage = ({ match }) => {
+  const name = match.params.name;
+  const id = Number(name.slice(-1));
+
+  const Employee = Store.getEmployeeByID(id);
   return (
-    <div>
-      <h3>{getFormattedName(match)}</h3>
-    </div>
+    <React.Fragment>
+      <div id="main">
+        <section className="ProfileSection">
+          <h2>{Employee.getFullName()}</h2>
+        </section>
+      </div>
+      <div id="side"></div>
+    </React.Fragment>
   );
 };
 

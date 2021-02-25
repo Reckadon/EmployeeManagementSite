@@ -51,7 +51,9 @@ class TopNav extends Component {
     document.getElementById("navbar").classList.add("extended");
     let Element = document.getElementById("copyright");
     Element.style.transform = "translateX(0px)";
-    Element = document.getElementById("nav-overlay").style.display = "block";
+    Element = document.getElementById("nav-overlay").style.visibility =
+      "visible";
+    Element = document.getElementById("nav-overlay").style.opacity = "1";
   }
   checkParam(match) {
     let name = match.params.name;
