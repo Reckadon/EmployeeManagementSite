@@ -39,19 +39,19 @@ class AddEmployee extends Component {
       number,
       email,
     } = this.state;
-    const employee = new Employee(
-      Store.getID(),
-      fname,
-      lname,
+    const employee = new Employee({
+      id: Store.getID(),
+      fName: fname,
+      lName: lname,
       age,
       salary,
       designation,
       gender,
       number,
       email,
-      false,
-      "now"
-    );
+      onLeave: false,
+      dateEmployed: "now",
+    });
     Store.addEmployee(employee);
     event.preventDefault();
     //reseting values

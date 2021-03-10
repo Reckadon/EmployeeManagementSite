@@ -13,9 +13,11 @@
   justify-content: center;
   cursor: pointer;
 }
-.sideButton:hover,
-.sideButton:focus {
+.sideButton:hover {
   background-color: rgb(39, 121, 156);
+}
+.sideButton:focus {
+  box-shadow: 0 0 0 3px rgb(149 211 236), 0 0 0 7px rgb(1, 74, 105);
 }
 .sideButton:active {
   background-color: rgb(16, 61, 80);

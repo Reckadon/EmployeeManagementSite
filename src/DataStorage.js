@@ -24,25 +24,40 @@ export default class Store {
     this.initializeStore();
     return JSON.parse(localStorage.getItem("employees")).employees;
   }
-  static getEmployeeByID(id) {
+  static getEmployeeByID(targetID) {
     //takes NUMBER ID
     //returns Employee Object
     const employeesArray = JSON.parse(localStorage.getItem("employees"))
       .employees;
-    const employee = employeesArray.find((employee) => employee.id === id);
-    if (employee === undefined) return;
-    return new Employee(
-      employee.id,
-      employee.fName,
-      employee.lName,
-      employee.age,
-      employee.salary,
-      employee.designation,
-      employee.gender,
-      employee.number,
-      employee.email,
-      employee.onLeave,
-      employee.dateEmployed
+    const employee = employeesArray.find(
+      (employee) => employee.id === targetID
     );
+    if (employee === undefined) return;
+    const {
+      id,
+      fName,
+      lName,
+      age,
+      salary,
+      designation,
+      gender,
+      number,
+      email,
+      onLeave,
+      dateEmployed,
+    } = employee;
+    return new Employee({
+      id,
+      fName,
+      lName,
+      age,
+      salary,
+      designation,
+      gender,
+      number,
+      email,
+      onLeave,
+      dateEmployed,
+    });
   }
 }

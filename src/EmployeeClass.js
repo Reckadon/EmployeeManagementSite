@@ -13,7 +13,7 @@
 */
 
 class Employee {
-  constructor(
+  constructor({
     id,
     fName,
     lName,
@@ -24,8 +24,8 @@ class Employee {
     number,
     email,
     onLeave,
-    dateEmployed
-  ) {
+    dateEmployed,
+  }) {
     this.id = id;
     this.fName = fName.toLowerCase();
     this.lName = lName.toLowerCase();
