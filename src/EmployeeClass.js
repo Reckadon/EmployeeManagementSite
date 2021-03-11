@@ -2,13 +2,13 @@
     id
     first name
     last name
-    age 
-    salary
     designation
     gender
+    age 
+    salary
+    onLeave
     telephone number
     email address
-    onLeave
     date employed
 */
 

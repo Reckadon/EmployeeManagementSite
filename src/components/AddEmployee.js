@@ -41,11 +41,11 @@ class AddEmployee extends Component {
     } = this.state;
     const employee = new Employee({
       id: Store.getID(),
-      fName: fname,
-      lName: lname,
+      fName: fname.trim(),
+      lName: lname.trim(),
       age,
       salary,
-      designation,
+      designation: designation.trim(),
       gender,
       number,
       email,

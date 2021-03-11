@@ -12,4 +12,13 @@
   padding: 10px;
   border-radius: 10px 10px 0px 0px;
   border-bottom: 2px solid rgba(0, 107, 150, 0.568);
+  position: relative;
+}
+.ProfileSection h2::after {
+  content: "id:" attr(employeeid);
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.842);
 }
