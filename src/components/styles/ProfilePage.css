@@ -22,3 +22,64 @@
   font-size: 17px;
   color: rgba(0, 0, 0, 0.842);
 }
+.ProfileSection > form > .profileRow {
+  padding: 5px 5%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 107, 150, 0.301);
+  transition: transform 150ms ease;
+}
+.ProfileSection > form > .profileRow > label {
+  font-weight: 500;
+  font-size: 15px;
+}
+.ProfileSection > form > .buttonsGrpProfilePage {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.ProfileSection > form > .buttonsGrpProfilePage > .sideButton {
+  width: 200px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.btn-deleteEmployee {
+  background-color: rgb(243, 24, 24);
+}
+.btn-deleteEmployee:hover {
+  background-color: rgb(255, 61, 61);
+}
+.btn-deleteEmployee:active {
+  background-color: rgb(175, 0, 0);
+}
+.btn-deleteEmployee:focus {
+  box-shadow: 0 0 0 3px rgb(149 211 236), 0 0 0 7px rgb(243, 24, 24);
+}
+#side > .deleteEmployeeDialog {
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border-bottom: 2px solid rgb(1, 74, 105);
+  border-top: 2px solid rgb(1, 74, 105);
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: roll-in 1s ease forwards;
+  background-color: rgba(0, 85, 119, 0.089);
+}
+#side > .deleteEmployeeDialog > h3 {
+  margin-top: 0px;
+  text-align: center;
+  color: rgb(0, 36, 51);
+}
+@keyframes roll-in {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 300px;
+  }
+}

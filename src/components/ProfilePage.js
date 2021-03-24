@@ -9,8 +9,9 @@ const ProfilePage = ({ match }) => {
 
   const [employee, setEmployee] = useState(() => Store.getEmployeeByID(id)); //using function to get employee only once
   const [editable, setEditable] = useState(false);
-
-  console.log("Render ", employee);
+  const [showDeleteEmployeeDialog, setShowDeleteEmployeeDialog] = useState(
+    false
+  );
 
   const handleChange = (changes) => {
     console.log("change");
@@ -53,6 +54,7 @@ const ProfilePage = ({ match }) => {
                 <select
                   readOnly={!editable}
                   id="profile-Gender"
+                  style={{ height: "21px" }}
                   value={employee.gender}
                   onChange={
                     editable
@@ -154,13 +156,32 @@ const ProfilePage = ({ match }) => {
                 value={employee.dateEmployed}
               ></input>
             </div>
-            <button type="submit" className="sideButton">
-              {editable ? "Save Details" : "Change Details"}
-            </button>
+            <div className="buttonsGrpProfilePage">
+              <button type="submit" className="sideButton">
+                {editable ? "Save Details" : "Change Details"}
+              </button>
+              <button
+                type="button"
+                className="sideButton btn-deleteEmployee"
+                onClick={() =>
+                  setShowDeleteEmployeeDialog(!showDeleteEmployeeDialog)
+                }
+              >
+                {showDeleteEmployeeDialog ? "Cancel" : "Fire Employee"}
+              </button>
+            </div>
           </form>
         </section>
       </div>
-      <div id="side"></div>
+      <div id="side">
+        <div
+          className="deleteEmployeeDialog"
+          style={{ display: showDeleteEmployeeDialog ? "flex" : "none" }}
+        >
+          <h3>Are you sure you want to fire this employee?</h3>
+          <button className="sideButton">Yes</button>
+        </div>
+      </div>
     </React.Fragment>
   );
 };
