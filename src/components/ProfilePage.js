@@ -1,25 +1,41 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Store from "../DataStorage";
 import Employee from "../EmployeeClass";
 import "./styles/ProfilePage.css";
 
-const ProfilePage = ({ match }) => {
+const ProfilePage = ({ match, onEmployeeRemoved }) => {
   const name = match.params.name;
-  const id = Number(name.slice(-1));
 
-  const [employee, setEmployee] = useState(() => Store.getEmployeeByID(id)); //using function to get employee only once
+  const [employee, setEmployee] = useState(() =>
+    Store.getEmployeeByID(Number(name.slice(-1)))
+  ); //using function to get employee only once
   const [editable, setEditable] = useState(false);
+  const [isChanged, setIsChanged] = useState(false);
   const [showDeleteEmployeeDialog, setShowDeleteEmployeeDialog] = useState(
     false
   );
 
   const handleChange = (changes) => {
-    console.log("change");
     const newEmployee = new Employee({
       ...employee,
       ...changes,
     }); //merges existing employee object with the changes and makes new employee object
     setEmployee(newEmployee);
+    setIsChanged(true);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (editable && isChanged) {
+      //updating the employees array from local storage
+      Store.updateEmployee(employee);
+    }
+    setEditable(!editable);
+    setIsChanged(false);
+  };
+  const handleEmployeeRemoved = () => {
+    Store.removeEmployee(employee.id);
+    onEmployeeRemoved(); // refresh employee list
   };
 
   return (
@@ -28,12 +44,7 @@ const ProfilePage = ({ match }) => {
         <section className="ProfileSection">
           <h2 employeeid={employee.id}>{employee.getFullName()}</h2>
           {/* attribute for 'after' pseudo element's content */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setEditable(!editable);
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <div className="profileRow">
               <label htmlFor="profile-Designation">Designation</label>
               <input
@@ -167,7 +178,7 @@ const ProfilePage = ({ match }) => {
                   setShowDeleteEmployeeDialog(!showDeleteEmployeeDialog)
                 }
               >
-                {showDeleteEmployeeDialog ? "Cancel" : "Fire Employee"}
+                {showDeleteEmployeeDialog ? "Cancel" : "Remove Employee"}
               </button>
             </div>
           </form>
@@ -178,8 +189,15 @@ const ProfilePage = ({ match }) => {
           className="deleteEmployeeDialog"
           style={{ display: showDeleteEmployeeDialog ? "flex" : "none" }}
         >
-          <h3>Are you sure you want to fire this employee?</h3>
-          <button className="sideButton">Yes</button>
+          <h3>Are you sure you want to Remove this Employee?</h3>
+
+          <Link
+            to="/employees"
+            className="sideButton"
+            onClick={handleEmployeeRemoved}
+          >
+            Yes
+          </Link>
         </div>
       </div>
     </React.Fragment>

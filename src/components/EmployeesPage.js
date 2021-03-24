@@ -15,7 +15,7 @@ class Employees extends Component {
   componentDidMount() {
     this.setState({ employees: Store.getEmployees() });
   }
-  handleEmployeeAdded = () => {
+  refresh = () => {
     this.setState({ employees: Store.getEmployees() });
   };
   render() {
@@ -27,7 +27,7 @@ class Employees extends Component {
             <EmployeeList employees={this.state.employees} />
           </div>
           <div id="side">
-            <AddEmployee onEmployeeAdded={this.handleEmployeeAdded} />
+            <AddEmployee onEmployeeAdded={this.refresh} />
           </div>
         </Route>
         <Route
@@ -38,7 +38,7 @@ class Employees extends Component {
             <Suspense fallback={<LoadingSpinner />}>
               {this.isParam(match) ? (
                 <React.Fragment>
-                  <ProfilePage match={match} />
+                  <ProfilePage match={match} onEmployeeRemoved={this.refresh} />
                 </React.Fragment>
               ) : (
                 <Error404 />

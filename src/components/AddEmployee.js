@@ -16,6 +16,7 @@ class AddEmployee extends Component {
     number: "",
     email: "",
   };
+  timeout = null;
 
   showForm = () => {
     this.setState({ formVisible: !this.state.formVisible });
@@ -61,7 +62,7 @@ class AddEmployee extends Component {
     this.props.onEmployeeAdded();
     //showing alert
     this.setState({ showEmployeeAddedAlert: true }, () => {
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         this.setState({ showEmployeeAddedAlert: false });
       }, 3000);
     });
@@ -78,6 +79,10 @@ class AddEmployee extends Component {
         this.setState({ [x]: "male" });
       }
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
   }
 
   render() {

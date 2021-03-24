@@ -67,13 +67,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: roll-in 1s ease forwards;
+  animation: roll-in 0.5s ease forwards;
   background-color: rgba(0, 85, 119, 0.089);
 }
 #side > .deleteEmployeeDialog > h3 {
   margin-top: 0px;
   text-align: center;
   color: rgb(0, 36, 51);
+}
+#side > .deleteEmployeeDialog > a {
+  outline: none;
 }
 @keyframes roll-in {
   from {
