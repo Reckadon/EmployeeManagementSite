@@ -37,7 +37,32 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
     Store.removeEmployee(employee.id);
     onEmployeeRemoved(); // refresh employee list
   };
+  const formatDate = (date) => {
+    let formattedDate = date.slice(0, date.indexOf("/"));
+    date = date.slice(date.indexOf("/") + 1);
+    formattedDate += " " + getMonthName(date.slice(0, date.indexOf("/")));
+    date = date.slice(date.indexOf("/") + 1);
+    return formattedDate + " " + date;
+  };
+  const getMonthName = (n) => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return monthNames[n - 1];
+  };
 
+  const inputClass = editable ? "edit" : "";
   return (
     <React.Fragment>
       <div id="main">
@@ -47,8 +72,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
           <form onSubmit={handleSubmit}>
             <div className="profileRow">
               <label htmlFor="profile-Designation">Designation</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-Designation"
+                className={inputClass}
                 readOnly={!editable}
                 type="text"
                 value={employee.designation}
@@ -61,11 +88,12 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Gender">Gender</label>
+              <span className={inputClass}></span>
               {editable ? ( //input element if not editable as select doesnt work as intended
                 <select
                   readOnly={!editable}
                   id="profile-Gender"
-                  style={{ height: "21px" }}
+                  className={inputClass}
                   value={employee.gender}
                   onChange={
                     editable
@@ -88,8 +116,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Age">Age</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-Age"
+                className={inputClass}
                 readOnly={!editable}
                 type="number"
                 value={employee.age}
@@ -102,8 +132,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Salary">Salary</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-Salary"
+                className={inputClass}
                 readOnly={!editable}
                 type="number"
                 value={employee.salary}
@@ -116,8 +148,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="onLeaveCheckBox">Available</label>
+              <span className={"shortSpan " + inputClass}></span>
               <input
                 id="onLeaveCheckBox"
+                className={inputClass}
                 readOnly={!editable}
                 type="checkbox"
                 checked={!employee.onLeave}
@@ -130,8 +164,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Number">Number</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-Number"
+                className={inputClass}
                 readOnly={!editable}
                 type="number"
                 min="999999999"
@@ -146,8 +182,10 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Email">Email</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-Email"
+                className={inputClass}
                 readOnly={!editable}
                 type="email"
                 value={employee.email}
@@ -160,11 +198,13 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
             </div>
             <div className="profileRow">
               <label htmlFor="profile-EmployedOn">Employed On</label>
+              <span className={inputClass}></span>
               <input
                 id="profile-EmployedOn"
+                className={inputClass}
                 readOnly={true}
                 type="text"
-                value={employee.dateEmployed}
+                value={formatDate(employee.dateEmployed)}
               ></input>
             </div>
             <div className="buttonsGrpProfilePage">

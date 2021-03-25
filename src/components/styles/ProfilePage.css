@@ -22,28 +22,97 @@
   font-size: 17px;
   color: rgba(0, 0, 0, 0.842);
 }
+
 .ProfileSection > form > .profileRow {
   padding: 5px 5%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgba(0, 107, 150, 0.301);
   transition: transform 150ms ease;
 }
+
 .ProfileSection > form > .profileRow > label {
   font-weight: 500;
   font-size: 15px;
 }
+
+.ProfileSection > form > .profileRow > span {
+  flex-grow: 1;
+  height: 26px;
+  position: relative;
+}
+.ProfileSection > form > .profileRow > span.shortSpan {
+  height: 18px;
+}
+.ProfileSection > form > .profileRow > span::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 2px;
+  background-color: rgba(0, 107, 150, 0.795);
+  transform: scaleY(0);
+  transition: all 250ms ease;
+}
+.ProfileSection > form > .profileRow > span.edit::after {
+  transform: scaleY(1);
+}
+
+.ProfileSection > form > .profileRow > input,
+.ProfileSection > form > .profileRow > select {
+  box-sizing: content-box;
+  width: 25%;
+  min-width: 150px;
+  height: 20px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: rgba(0, 89, 255, 0.089);
+  font-size: 15px;
+  text-align: end;
+  text-transform: capitalize;
+  opacity: 0.8;
+  transition: all 250ms ease, opacity 100ms ease;
+}
+
+.ProfileSection > form > .profileRow > input:hover,
+.ProfileSection > form > .profileRow > select:hover {
+  opacity: 1;
+}
+.ProfileSection > form > .profileRow > input.edit,
+.ProfileSection > form > .profileRow > select.edit {
+  border-radius: 0px 5px 5px 0px;
+}
+.ProfileSection > form > .profileRow > input.edit:focus,
+.ProfileSection > form > .profileRow > select.edit:focus {
+  background-color: rgba(0, 89, 255, 0.301);
+}
+
+.ProfileSection > form > .profileRow > input[type="checkbox"] {
+  width: 18px;
+  height: 26px;
+  margin: 0;
+  min-width: 0px;
+}
+
+.ProfileSection > form > .profileRow > input[type="email"] {
+  text-transform: lowercase;
+}
+
 .ProfileSection > form > .buttonsGrpProfilePage {
   margin-top: 10px;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
 }
+
 .ProfileSection > form > .buttonsGrpProfilePage > .sideButton {
   width: 200px;
   margin-right: 10px;
   display: inline-block;
 }
+
 .btn-deleteEmployee {
   background-color: rgb(243, 24, 24);
 }
@@ -56,6 +125,7 @@
 .btn-deleteEmployee:focus {
   box-shadow: 0 0 0 3px rgb(149 211 236), 0 0 0 7px rgb(243, 24, 24);
 }
+
 #side > .deleteEmployeeDialog {
   width: 100%;
   padding: 5px;
@@ -70,14 +140,17 @@
   animation: roll-in 0.5s ease forwards;
   background-color: rgba(0, 85, 119, 0.089);
 }
+
 #side > .deleteEmployeeDialog > h3 {
   margin-top: 0px;
   text-align: center;
   color: rgb(0, 36, 51);
 }
+
 #side > .deleteEmployeeDialog > a {
   outline: none;
 }
+
 @keyframes roll-in {
   from {
     height: 0px;
