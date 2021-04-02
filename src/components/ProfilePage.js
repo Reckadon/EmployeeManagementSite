@@ -38,30 +38,6 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
     Store.removeEmployee(employee.id);
     onEmployeeRemoved(); // refresh employee list
   };
-  const formatDate = date => {
-    let formattedDate = date.slice(0, date.indexOf("/"));
-    date = date.slice(date.indexOf("/") + 1);
-    formattedDate += " " + getMonthName(date.slice(0, date.indexOf("/")));
-    date = date.slice(date.indexOf("/") + 1);
-    return formattedDate + " " + date;
-  };
-  const getMonthName = n => {
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return monthNames[n - 1];
-  };
 
   const inputClass = editable ? "edit" : "";
   return (
@@ -197,7 +173,7 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 className={inputClass}
                 readOnly={true}
                 type="text"
-                value={formatDate(employee.dateEmployed)}></input>
+                value={employee.getFormattedDate()}></input>
             </div>
             <div className="buttonsGrpProfilePage">
               <button type="submit" className="sideButton">

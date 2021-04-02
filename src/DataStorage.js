@@ -25,7 +25,7 @@ export default class Store {
 
   static updateEmployee(employee) {
     const employees = this.getEmployees();
-    const newEmployees = employees.map((emp) => {
+    const newEmployees = employees.map(emp => {
       if (emp.id !== employee.id) {
         return emp;
       }
@@ -37,7 +37,7 @@ export default class Store {
   static removeEmployee(id) {
     const employees = this.getEmployees();
     let newEmployees = [];
-    employees.forEach((emp) => {
+    employees.forEach(emp => {
       if (emp.id !== id) {
         newEmployees.push(emp);
       }
@@ -64,35 +64,8 @@ export default class Store {
     //returns Employee Object
     const employeesArray = JSON.parse(localStorage.getItem("employees"))
       .employees;
-    const employee = employeesArray.find(
-      (employee) => employee.id === targetID
-    );
+    const employee = employeesArray.find(employee => employee.id === targetID);
     if (employee === undefined) return;
-    const {
-      id,
-      fName,
-      lName,
-      age,
-      salary,
-      designation,
-      gender,
-      number,
-      email,
-      onLeave,
-      dateEmployed,
-    } = employee;
-    return new Employee({
-      id,
-      fName,
-      lName,
-      age,
-      salary,
-      designation,
-      gender,
-      number,
-      email,
-      onLeave,
-      dateEmployed,
-    });
+    return new Employee(employee);
   }
 }

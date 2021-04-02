@@ -72,13 +72,12 @@
   font-size: 15px;
   text-align: end;
   text-transform: capitalize;
-  opacity: 0.8;
-  transition: all 250ms ease, opacity 100ms ease;
+  transition: all 250ms ease, color 100ms ease;
 }
 
-.ProfileSection > form > .profileRow > input:hover,
-.ProfileSection > form > .profileRow > select:hover {
-  opacity: 1;
+.ProfileSection > form > .profileRow:hover > input,
+.ProfileSection > form > .profileRow:hover > select {
+  background-color: rgba(0, 89, 255, 0.164);
 }
 .ProfileSection > form > .profileRow > input.edit,
 .ProfileSection > form > .profileRow > select.edit {

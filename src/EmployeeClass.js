@@ -50,5 +50,30 @@ class Employee {
   getFullName() {
     return this.fName + " " + this.lName;
   }
+  getFormattedDate() {
+    let date = this.dateEmployed;
+    let formattedDate = date.slice(0, date.indexOf("/"));
+    date = date.slice(date.indexOf("/") + 1);
+    formattedDate += " " + this.getMonthName(date.slice(0, date.indexOf("/")));
+    date = date.slice(date.indexOf("/") + 1);
+    return formattedDate + " " + date;
+  }
+  getMonthName = n => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return monthNames[n - 1];
+  };
 }
 export default Employee;
