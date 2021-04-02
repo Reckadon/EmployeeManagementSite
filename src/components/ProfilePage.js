@@ -4,7 +4,7 @@ import Store from "../DataStorage";
 import Employee from "../EmployeeClass";
 import "./styles/ProfilePage.css";
 
-const ProfilePage = ({ match, onEmployeeRemoved }) => {
+const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
   const name = match.params.name;
 
   const [employee, setEmployee] = useState(() =>
@@ -16,7 +16,7 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
     false
   );
 
-  const handleChange = (changes) => {
+  const handleChange = changes => {
     const newEmployee = new Employee({
       ...employee,
       ...changes,
@@ -24,11 +24,12 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
     setEmployee(newEmployee);
     setIsChanged(true);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (editable && isChanged) {
       //updating the employees array from local storage
       Store.updateEmployee(employee);
+      onEdited();
     }
     setEditable(!editable);
     setIsChanged(false);
@@ -37,14 +38,14 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
     Store.removeEmployee(employee.id);
     onEmployeeRemoved(); // refresh employee list
   };
-  const formatDate = (date) => {
+  const formatDate = date => {
     let formattedDate = date.slice(0, date.indexOf("/"));
     date = date.slice(date.indexOf("/") + 1);
     formattedDate += " " + getMonthName(date.slice(0, date.indexOf("/")));
     date = date.slice(date.indexOf("/") + 1);
     return formattedDate + " " + date;
   };
-  const getMonthName = (n) => {
+  const getMonthName = n => {
     const monthNames = [
       "January",
       "February",
@@ -81,10 +82,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 value={employee.designation}
                 onChange={
                   editable
-                    ? (e) => handleChange({ designation: e.target.value }) //if editable we add a callback
+                    ? e => handleChange({ designation: e.target.value }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Gender">Gender</label>
@@ -97,10 +97,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                   value={employee.gender}
                   onChange={
                     editable
-                      ? (e) => handleChange({ gender: e.target.value }) //if editable we add a callback
+                      ? e => handleChange({ gender: e.target.value }) //if editable we add a callback
                       : null
-                  }
-                >
+                  }>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -110,8 +109,7 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                   id="profile-Gender"
                   readOnly
                   type="text"
-                  value={employee.gender}
-                ></input>
+                  value={employee.gender}></input>
               )}
             </div>
             <div className="profileRow">
@@ -125,10 +123,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 value={employee.age}
                 onChange={
                   editable
-                    ? (e) => handleChange({ age: e.target.value }) //if editable we add a callback
+                    ? e => handleChange({ age: e.target.value }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Salary">Salary</label>
@@ -141,10 +138,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 value={employee.salary}
                 onChange={
                   editable
-                    ? (e) => handleChange({ salary: e.target.value }) //if editable we add a callback
+                    ? e => handleChange({ salary: e.target.value }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="onLeaveCheckBox">Available</label>
@@ -159,8 +155,7 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                   editable
                     ? () => handleChange({ onLeave: !employee.onLeave }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Number">Number</label>
@@ -175,10 +170,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 value={employee.number}
                 onChange={
                   editable
-                    ? (e) => handleChange({ number: e.target.value }) //if editable we add a callback
+                    ? e => handleChange({ number: e.target.value }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Email">Email</label>
@@ -191,10 +185,9 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 value={employee.email}
                 onChange={
                   editable
-                    ? (e) => handleChange({ email: e.target.value }) //if editable we add a callback
+                    ? e => handleChange({ email: e.target.value }) //if editable we add a callback
                     : null
-                }
-              ></input>
+                }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-EmployedOn">Employed On</label>
@@ -204,8 +197,7 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 className={inputClass}
                 readOnly={true}
                 type="text"
-                value={formatDate(employee.dateEmployed)}
-              ></input>
+                value={formatDate(employee.dateEmployed)}></input>
             </div>
             <div className="buttonsGrpProfilePage">
               <button type="submit" className="sideButton">
@@ -216,8 +208,7 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
                 className="sideButton btn-deleteEmployee"
                 onClick={() =>
                   setShowDeleteEmployeeDialog(!showDeleteEmployeeDialog)
-                }
-              >
+                }>
                 {showDeleteEmployeeDialog ? "Cancel" : "Remove Employee"}
               </button>
             </div>
@@ -227,15 +218,13 @@ const ProfilePage = ({ match, onEmployeeRemoved }) => {
       <div id="side">
         <div
           className="deleteEmployeeDialog"
-          style={{ display: showDeleteEmployeeDialog ? "flex" : "none" }}
-        >
+          style={{ display: showDeleteEmployeeDialog ? "flex" : "none" }}>
           <h3>Are you sure you want to Remove this Employee?</h3>
 
           <Link
             to="/employees"
             className="sideButton"
-            onClick={handleEmployeeRemoved}
-          >
+            onClick={handleEmployeeRemoved}>
             Yes
           </Link>
         </div>

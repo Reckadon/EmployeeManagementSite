@@ -22,13 +22,13 @@ class AddEmployee extends Component {
     this.setState({ formVisible: !this.state.formVisible });
     this.resetValues();
   };
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value,
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     //creating employee object
     const {
       fname,
@@ -92,8 +92,7 @@ class AddEmployee extends Component {
         <button
           className="sideButton"
           id="addEmployeeBtn"
-          onClick={this.showForm}
-        >
+          onClick={this.showForm}>
           <span className="fas fa-user"></span>
           <span>Add New Employee</span>
           <span
@@ -102,13 +101,11 @@ class AddEmployee extends Component {
               transform: this.state.formVisible
                 ? "rotate(180deg)"
                 : "rotate(0deg)",
-            }}
-          ></span>
+            }}></span>
         </button>
         <div
           id="addEmployeeForm"
-          className={this.state.formVisible ? "active" : null}
-        >
+          className={this.state.formVisible ? "active" : null}>
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="fname">First Name:</label>
             <input
@@ -165,10 +162,10 @@ class AddEmployee extends Component {
             <label htmlFor="gender">Gender:</label>
             <select
               id="gender"
+              className="customSelect"
               tabIndex={tabIndex}
               value={this.state.gender}
-              onChange={this.handleChange}
-            >
+              onChange={this.handleChange}>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -208,8 +205,7 @@ class AddEmployee extends Component {
           id="alertAdded"
           style={{
             display: this.state.showEmployeeAddedAlert ? "block" : "none",
-          }}
-        >
+          }}>
           <h4 className="alertH4">Employee Added</h4>
         </div>
       </React.Fragment>

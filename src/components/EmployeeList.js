@@ -8,7 +8,7 @@ class EmployeeList extends Component {
   }
   getContent() {
     const employees = this.props.employees;
-    if (employees.length === 0) {
+    if (this.props.isEmpty) {
       return <h2>No Data. Start by adding Employees!</h2>;
     }
     // else
@@ -30,7 +30,7 @@ class EmployeeList extends Component {
   }
   getEmployeeRows(employees) {
     let srNo = 0;
-    return employees.map((employee) => {
+    return employees.map(employee => {
       srNo++;
       return <EmployeeRow key={srNo} employee={employee} />;
     });

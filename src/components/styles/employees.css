@@ -1,3 +1,29 @@
+.filterWidget {
+  width: 100%;
+  display: flex;
+  margin-bottom: 15px;
+  flex-direction: column;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.568);
+}
+.filterWidget > .filterLabel {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.filterWidget > .filterLabel::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0b0";
+  color: rgba(0, 0, 0, 0.767);
+  margin-right: 3px;
+}
+.filterWidget > .customSelect {
+  font-size: 15px;
+  color: white;
+  background-color: rgb(18, 90, 121);
+}
+.filterWidget > .customSelect:hover {
+  background-color: rgb(38, 123, 160);
+}
+
 .sideButton,
 #addEmployeeForm > form > input#addBtnInput {
   background-color: rgb(1, 74, 105);
@@ -67,9 +93,8 @@
 #addEmployeeForm > form > input[type="email"] {
   text-transform: lowercase;
 }
-#addEmployeeForm > form > select {
+.customSelect {
   margin-bottom: 10px;
-  box-sizing: border-box;
   width: 100%;
   background-color: rgb(28, 89, 116);
   color: rgb(228, 228, 228);
@@ -78,8 +103,8 @@
   border-radius: 5px;
   padding: 7px;
 }
-#addEmployeeForm > form > select:hover,
-#addEmployeeForm > form > select:focus {
+.customSelect:hover,
+.customSelect:focus {
   background-color: rgb(9, 73, 100);
 }
 #addEmployeeForm > form > input#addBtnInput {
