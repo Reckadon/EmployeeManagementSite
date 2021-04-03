@@ -201,13 +201,11 @@ class AddEmployee extends Component {
             />
           </form>
         </div>
-        <div
-          id="alertAdded"
-          style={{
-            display: this.state.showEmployeeAddedAlert ? "block" : "none",
-          }}>
-          <h4 className="alertH4">Employee Added</h4>
-        </div>
+        {this.state.showEmployeeAddedAlert && (
+          <div id="alertAdded">
+            <h4 className="alertH4">Employee Added</h4>
+          </div>
+        )}
       </React.Fragment>
     );
   }
