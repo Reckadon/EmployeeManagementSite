@@ -12,8 +12,10 @@ class Employees extends Component {
   //employees page handling employees list and user profiles from dynamic URIs
   state = {
     employees: [],
-    filteredEmployees: [],
     filter: "none",
+    filteredEmployees: [],
+    sort: "none",
+    sortedEmployees: [],
   };
   load() {
     this.setState({ employees: Store.getEmployees() }, this.filter);
@@ -21,41 +23,85 @@ class Employees extends Component {
 
   filter() {
     const filter = this.state.filter;
+    let filteredEmployees;
     switch (
       filter //handle different filters
     ) {
       case "none":
-        this.setState({ filteredEmployees: this.state.employees });
+        filteredEmployees = this.state.employees;
         break;
 
       case "available": {
-        const filteredEmployees = this.state.employees.filter(
-          emp => !emp.onLeave
-        );
-        this.setState({ filteredEmployees });
+        filteredEmployees = this.state.employees.filter(emp => !emp.onLeave);
         break;
       }
 
       case "male": {
-        const filteredEmployees = this.state.employees.filter(
+        filteredEmployees = this.state.employees.filter(
           emp => emp.gender === "male"
         );
-        this.setState({ filteredEmployees });
         break;
       }
 
       case "female": {
-        const filteredEmployees = this.state.employees.filter(
+        filteredEmployees = this.state.employees.filter(
           emp => emp.gender === "female"
         );
-        this.setState({ filteredEmployees });
         break;
       }
 
       default:
-        this.setState({ filteredEmployees: this.state.employees });
+        filteredEmployees = this.state.employees;
         break;
     }
+    this.setState({ filteredEmployees }, this.sort);
+  }
+
+  sort() {
+    const sort = this.state.sort;
+    let sortedEmployees;
+    const filteredEmployees = [...this.state.filteredEmployees];
+    switch (
+      sort //handle different sorts
+    ) {
+      case "none": {
+        sortedEmployees = filteredEmployees;
+        break;
+      }
+
+      case "salary-a": {
+        sortedEmployees = filteredEmployees.sort(
+          (a, b) => Number(a.salary) - Number(b.salary)
+        );
+        break;
+      }
+
+      case "salary-d": {
+        sortedEmployees = filteredEmployees.sort(
+          (a, b) => Number(b.salary) - Number(a.salary)
+        );
+        break;
+      }
+
+      case "age-a": {
+        sortedEmployees = filteredEmployees.sort(
+          (a, b) => Number(a.age) - Number(b.age)
+        );
+        break;
+      }
+
+      case "age-d": {
+        sortedEmployees = filteredEmployees.sort(
+          (a, b) => Number(b.age) - Number(a.age)
+        );
+        break;
+      }
+
+      default:
+        sortedEmployees = filteredEmployees;
+        break;
+    }
+    this.setState({ sortedEmployees });
   }
 
   componentDidMount() {
@@ -65,9 +111,10 @@ class Employees extends Component {
     this.load();
   };
   handleFilterChange = filter => {
-    this.setState({ filter }, () => {
-      this.filter();
-    });
+    this.setState({ filter }, this.filter);
+  };
+  handleSortChange = sort => {
+    this.setState({ sort }, this.sort);
   };
 
   render() {
@@ -77,14 +124,16 @@ class Employees extends Component {
           {/* '/employees' */}
           <div id="main">
             <EmployeeList
-              employees={this.state.filteredEmployees}
+              employees={this.state.sortedEmployees}
               isEmpty={this.state.employees.length === 0}
             />
           </div>
           <div id="side">
             <FilterWidget
-              value={this.state.filter}
-              onChange={this.handleFilterChange}
+              filter={this.state.filter}
+              onFilterChange={this.handleFilterChange}
+              sort={this.state.sort}
+              onSortChange={this.handleSortChange}
             />
             <AddEmployee onEmployeeAdded={this.refresh} />
           </div>

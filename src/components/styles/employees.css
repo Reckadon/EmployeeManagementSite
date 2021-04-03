@@ -8,20 +8,29 @@
 .filterWidget > .filterLabel {
   font-weight: 500;
   margin-bottom: 2px;
+  display: flex;
+  align-items: center;
 }
 .filterWidget > .filterLabel::before {
   font-family: "Font Awesome 5 Free";
   content: "\f0b0";
-  color: rgba(0, 0, 0, 0.767);
+  color: rgba(5, 32, 83, 0.801);
   margin-right: 3px;
 }
+.filterWidget > .filterLabel:nth-child(3)::before {
+  /*sort by label */
+  content: "\f0dc";
+  font-size: 20px;
+}
 .filterWidget > .customSelect {
+  width: 97%;
+  align-self: center;
   font-size: 15px;
   color: white;
   background-color: rgb(18, 90, 121);
 }
 .filterWidget > .customSelect:hover {
-  background-color: rgb(38, 123, 160);
+  background-color: rgb(28, 117, 155);
 }
 
 .sideButton,
