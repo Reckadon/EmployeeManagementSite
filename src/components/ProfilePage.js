@@ -25,6 +25,7 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
   }, [copied]);
 
   const handleChange = changes => {
+    if (!editable) return; //if editable we proceed
     const newEmployee = new Employee({
       ...employee,
       ...changes,
@@ -69,10 +70,8 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 readOnly={!editable}
                 type="text"
                 value={employee.designation}
-                onChange={
-                  editable
-                    ? e => handleChange({ designation: e.target.value }) //if editable we add a callback
-                    : null
+                onChange={e =>
+                  handleChange({ designation: e.target.value })
                 }></input>
             </div>
             <div className="profileRow">
@@ -84,11 +83,7 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                   id="profile-Gender"
                   className={inputClass}
                   value={employee.gender}
-                  onChange={
-                    editable
-                      ? e => handleChange({ gender: e.target.value }) //if editable we add a callback
-                      : null
-                  }>
+                  onChange={e => handleChange({ gender: e.target.value })}>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -110,11 +105,7 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 readOnly={!editable}
                 type="number"
                 value={employee.age}
-                onChange={
-                  editable
-                    ? e => handleChange({ age: e.target.value }) //if editable we add a callback
-                    : null
-                }></input>
+                onChange={e => handleChange({ age: e.target.value })}></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Salary">Salary</label>
@@ -125,26 +116,27 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 readOnly={!editable}
                 type="number"
                 value={employee.salary}
-                onChange={
-                  editable
-                    ? e => handleChange({ salary: e.target.value }) //if editable we add a callback
-                    : null
+                onChange={e =>
+                  handleChange({ salary: e.target.value })
                 }></input>
             </div>
             <div className="profileRow">
               <label htmlFor="onLeaveCheckBox">Available</label>
               <span className={"shortSpan " + inputClass}></span>
-              <input
-                id="onLeaveCheckBox"
-                className={inputClass}
-                readOnly={!editable}
-                type="checkbox"
-                checked={!employee.onLeave}
-                onChange={
-                  editable
-                    ? () => handleChange({ onLeave: !employee.onLeave }) //if editable we add a callback
-                    : null
-                }></input>
+              <i
+                className={`fas fa-${
+                  employee.onLeave ? "times-circle" : "check-circle"
+                }`}
+                style={{
+                  fontSize: "26px",
+                  height: "26px",
+                  width: "26px",
+                  color: employee.onLeave ? "#ec0000" : "#014968",
+                  cursor: "pointer",
+                }}
+                onClick={() =>
+                  handleChange({ onLeave: !employee.onLeave })
+                }></i>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-Number">Number</label>
@@ -157,10 +149,8 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 min="999999999"
                 max="9999999999"
                 value={employee.number}
-                onChange={
-                  editable
-                    ? e => handleChange({ number: e.target.value }) //if editable we add a callback
-                    : null
+                onChange={e =>
+                  handleChange({ number: e.target.value })
                 }></input>
             </div>
             <div className="profileRow">
@@ -172,11 +162,7 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 readOnly={!editable}
                 type="email"
                 value={employee.email}
-                onChange={
-                  editable
-                    ? e => handleChange({ email: e.target.value }) //if editable we add a callback
-                    : null
-                }></input>
+                onChange={e => handleChange({ email: e.target.value })}></input>
             </div>
             <div className="profileRow">
               <label htmlFor="profile-EmployedOn">Employed On</label>
