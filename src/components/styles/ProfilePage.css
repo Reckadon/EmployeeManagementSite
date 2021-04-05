@@ -106,6 +106,22 @@
   justify-content: flex-end;
 }
 
+.ProfileSection > form > .buttonsGrpProfilePage > span {
+  flex-grow: 1;
+  align-self: flex-end;
+  padding-left: 10px;
+  color: rgb(0, 77, 112);
+  font-size: smaller;
+  text-decoration: underline;
+}
+.ProfileSection > form > .buttonsGrpProfilePage > span > span {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.ProfileSection > form > .buttonsGrpProfilePage > span > span:hover {
+  opacity: 0.9;
+}
+
 .ProfileSection > form > .buttonsGrpProfilePage > .sideButton {
   width: 200px;
   margin-right: 10px;

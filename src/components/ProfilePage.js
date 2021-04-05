@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Store from "../DataStorage";
 import Employee from "../EmployeeClass";
@@ -15,6 +15,14 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
   const [showDeleteEmployeeDialog, setShowDeleteEmployeeDialog] = useState(
     false
   );
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
 
   const handleChange = changes => {
     const newEmployee = new Employee({
@@ -37,6 +45,11 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
   const handleEmployeeRemoved = () => {
     Store.removeEmployee(employee.id);
     onEmployeeRemoved(); // refresh employee list
+  };
+
+  const handleDetailsCopy = async () => {
+    await navigator.clipboard.writeText(JSON.stringify(employee, undefined, 4));
+    setCopied(true);
   };
 
   const inputClass = editable ? "edit" : "";
@@ -176,6 +189,11 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 value={employee.getFormattedDate()}></input>
             </div>
             <div className="buttonsGrpProfilePage">
+              <span>
+                <span onClick={handleDetailsCopy}>
+                  {copied ? "Copied!" : "Copy Employee details as JSON."}
+                </span>
+              </span>
               <button type="submit" className="sideButton">
                 {editable ? "Save Details" : "Change Details"}
               </button>
