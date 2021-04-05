@@ -36,16 +36,10 @@ class Employees extends Component {
         break;
       }
 
-      case "male": {
-        filteredEmployees = this.state.employees.filter(
-          emp => emp.gender === "male"
-        );
-        break;
-      }
-
+      case "male":
       case "female": {
         filteredEmployees = this.state.employees.filter(
-          emp => emp.gender === "female"
+          emp => emp.gender === filter
         );
         break;
       }
