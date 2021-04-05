@@ -183,6 +183,7 @@
   }
   .ProfileSection > form > .buttonsGrpProfilePage > span {
     align-self: auto;
+    padding-left: 0px;
   }
   .ProfileSection > form > .buttonsGrpProfilePage > .sideButton {
     margin: 0 0 10px 0;
