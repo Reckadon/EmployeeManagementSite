@@ -211,18 +211,17 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
         </section>
       </div>
       <div id="side">
-        <div
-          className="deleteEmployeeDialog"
-          style={{ display: showDeleteEmployeeDialog ? "flex" : "none" }}>
-          <h3>Are you sure you want to Remove this Employee?</h3>
-
-          <Link
-            to="/employees"
-            className="sideButton"
-            onClick={handleEmployeeRemoved}>
-            Yes
-          </Link>
-        </div>
+        {showDeleteEmployeeDialog && (
+          <div className="deleteEmployeeDialog">
+            <h3>Are you sure you want to Remove this Employee?</h3>
+            <Link
+              to="/employees"
+              className="sideButton"
+              onClick={handleEmployeeRemoved}>
+              Yes
+            </Link>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
