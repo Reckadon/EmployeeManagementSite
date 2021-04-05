@@ -189,11 +189,16 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 value={employee.getFormattedDate()}></input>
             </div>
             <div className="buttonsGrpProfilePage">
-              <span>
-                <span onClick={handleDetailsCopy}>
-                  {copied ? "Copied!" : "Copy Employee details as JSON."}
+              {window.screen.width > 480 ? (
+                <span>
+                  <span onClick={handleDetailsCopy}>
+                    <i
+                      className="fa fa-copy"
+                      style={{ paddingRight: "3px" }}></i>
+                    {copied ? "Copied!" : "Copy Employee details as JSON."}
+                  </span>
                 </span>
-              </span>
+              ) : null}
               <button type="submit" className="sideButton">
                 {editable ? "Save Details" : "Change Details"}
               </button>
@@ -205,6 +210,16 @@ const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
                 }>
                 {showDeleteEmployeeDialog ? "Cancel" : "Remove Employee"}
               </button>
+              {window.screen.width > 480 ? null : (
+                <span>
+                  <span onClick={handleDetailsCopy}>
+                    <i
+                      className="fa fa-copy"
+                      style={{ paddingRight: "3px" }}></i>
+                    {copied ? "Copied!" : "Copy Employee details as JSON."}
+                  </span>
+                </span>
+              )}
             </div>
           </form>
         </section>
