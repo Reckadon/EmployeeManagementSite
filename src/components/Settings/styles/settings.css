@@ -1,0 +1,59 @@
+.settingsDiv {
+  padding: 10px;
+  background-color: rgba(0, 94, 131, 0.068);
+  border-radius: 8px;
+  min-height: 90%;
+}
+
+.settingsDiv fieldset {
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 136, 190, 0.1);
+}
+
+.settingsDiv fieldset > legend {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(0, 43, 59);
+}
+
+.settingsDiv fieldset > .settingsRow {
+  padding: 0 5px 5px 5px;
+  display: flex;
+  align-items: fill;
+  justify-content: flex-end;
+}
+
+.settingsDiv fieldset > .settingsRow > span {
+  flex-grow: 1;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.settingsDiv fieldset > .settingsRow > .sideButton {
+  min-width: 50px;
+  margin-right: 5%;
+  background-color: rgb(1, 74, 105);
+  color: white;
+  width: 15%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 0px;
+  font-size: larger;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.settingsDiv fieldset > .settingsRow > .sideButton:hover {
+  background-color: rgb(39, 121, 156);
+}
+.settingsDiv fieldset > .settingsRow > .sideButton:focus {
+  box-shadow: 0 0 0 3px rgb(149 211 236), 0 0 0 7px rgb(1, 74, 105);
+}
+.settingsDiv fieldset > .settingsRow > .sideButton:active {
+  background-color: rgb(16, 61, 80);
+}
