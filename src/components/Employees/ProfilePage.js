@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Store from "../DataStorage";
-import Employee from "../EmployeeClass";
+import Store from "../../DataStorage";
+import Employee from "../../EmployeeClass";
 import "./styles/ProfilePage.css";
 
 const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {

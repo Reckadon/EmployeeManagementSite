@@ -1,3 +1,5 @@
+import React from "react";
+
 const FilterWidget = ({ filter, onFilterChange, sort, onSortChange }) => {
   return (
     <div className="filterWidget">

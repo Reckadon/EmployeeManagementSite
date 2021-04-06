@@ -4,8 +4,9 @@ import TopNav from "./TopNav";
 import Error404 from "./Error404";
 import LoadingSpinner from "./LoadingSpinner";
 import "./styles/container.css";
-const Dashboard = lazy(() => import("./Dashboard"));
-const Employees = lazy(() => import("./EmployeesPage"));
+const Dashboard = lazy(() => import("./Dashboard/Dashboard"));
+const Employees = lazy(() => import("./Employees/EmployeesPage"));
+const Settings = lazy(() => import("./Settings/Settings.jsx"));
 
 class Container extends Component {
   //handles paths '/' and '/employees' along with any unknown paths, and background
@@ -27,6 +28,11 @@ class Container extends Component {
             <Route path="/employees">
               <Suspense fallback={<LoadingSpinner />}>
                 <Employees />
+              </Suspense>
+            </Route>
+            <Route path="/settings">
+              <Suspense fallback={<LoadingSpinner />}>
+                <Settings />
               </Suspense>
             </Route>
             <Route component={Error404} />

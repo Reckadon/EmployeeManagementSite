@@ -55,8 +55,7 @@ class NavBar extends Component {
             title="Dashboard"
             onClick={() => {
               this.retract();
-            }}
-          >
+            }}>
             <span>
               <span className="large fas fa-tasks"></span>
             </span>
@@ -69,8 +68,7 @@ class NavBar extends Component {
               title="Dashboard"
               onClick={() => {
                 this.retract();
-              }}
-            >
+              }}>
               <li>
                 <span>
                   <span className="small fas fa-digital-tachograph"></span>
@@ -84,12 +82,25 @@ class NavBar extends Component {
               title="Employees"
               onClick={() => {
                 this.retract();
-              }}
-            >
+              }}>
               <li>
                 <span>
                   <span className="small fas fa-users"></span>
                   <h4 className="navh4">Employees</h4>
+                </span>
+              </li>
+            </NavLink>
+            <NavLink
+              to="/settings"
+              aria-label="Settings"
+              title="Settings"
+              onClick={() => {
+                this.retract();
+              }}>
+              <li>
+                <span>
+                  <span className="small fas fa-cog"></span>
+                  <h4 className="navh4">Settings</h4>
                 </span>
               </li>
             </NavLink>
@@ -103,11 +114,10 @@ class NavBar extends Component {
             tabIndex="0"
             role="button"
             aria-pressed={this.state.extended}
-            onKeyDown={(e) => {
+            onKeyDown={e => {
               if (e.code === "Enter" || e.code === "Space") this.extend();
             }}
-            onClick={() => this.extend()}
-          >
+            onClick={() => this.extend()}>
             <span id="chevron" className="small fas fa-chevron-right"></span>
           </span>
         </div>
@@ -117,8 +127,7 @@ class NavBar extends Component {
           style={{
             visibility: this.state.extended ? "visible" : "hidden",
           }}
-          onClick={() => this.retract()}
-        ></div>
+          onClick={() => this.retract()}></div>
       </React.Fragment>
     );
   }

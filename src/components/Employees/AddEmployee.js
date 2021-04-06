@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import "./styles/employees.css";
-import Employee from "../EmployeeClass.js";
-import Store from "../DataStorage";
+import Employee from "../../EmployeeClass.js";
+import Store from "../../DataStorage";
 
 class AddEmployee extends Component {
   state = {

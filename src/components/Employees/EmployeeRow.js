@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Store from "../DataStorage";
+import Store from "../../DataStorage";
 
 const EmployeeRow = ({ employee }) => {
   const employeeObj = Store.getEmployeeByID(Number(employee.id));
@@ -11,8 +11,7 @@ const EmployeeRow = ({ employee }) => {
         <Link
           to={`employees/${employeeObj.fName}-${employeeObj.lName}-${employeeObj.id}`}
           title="Go to Profile"
-          aria-label="Go to Profile"
-        >
+          aria-label="Go to Profile">
           {employeeObj.getFullName()}
         </Link>
       </td>
@@ -21,8 +20,7 @@ const EmployeeRow = ({ employee }) => {
       <td title="Employee Designation">{employeeObj.designation}</td>
       <td
         title="Employee Availability"
-        style={{ padding: "0px", textAlign: "center" }}
-      >
+        style={{ padding: "0px", textAlign: "center" }}>
         <span
           className={`fas fa-${
             employeeObj.onLeave ? "times-circle" : "check-circle"
@@ -30,8 +28,7 @@ const EmployeeRow = ({ employee }) => {
           style={{
             fontSize: "28px",
             color: employeeObj.onLeave ? "#ec0000" : "#014968",
-          }}
-        ></span>
+          }}></span>
       </td>
     </tr>
   );

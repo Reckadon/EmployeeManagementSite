@@ -2,10 +2,11 @@ import React, { Component, lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import EmployeeList from "./EmployeeList";
 import AddEmployee from "./AddEmployee";
-import Store from "../DataStorage";
-import Error404 from "./Error404";
+import Store from "../../DataStorage.js";
+import Error404 from "../Error404";
 import FilterWidget from "./FilterWidget";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
+import "./styles/employees.css";
 const ProfilePage = lazy(() => import("./ProfilePage"));
 
 class Employees extends Component {

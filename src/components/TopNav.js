@@ -8,8 +8,7 @@ class TopNav extends Component {
       <nav>
         <span
           onClick={() => this.showSideBar()}
-          className="large fas fa-bars"
-        ></span>
+          className="large fas fa-bars"></span>
         <span className="pageInfo">
           {/* Dynamic header for page with Router  */}
           <Switch>
@@ -19,11 +18,13 @@ class TopNav extends Component {
             <Route exact path="/employees">
               Employees
             </Route>
+            <Route exact path="/settings">
+              Settings
+            </Route>
             <Route
               exact
               path="/employees/:name"
-              component={({ match }) => this.checkParam(match)}
-            ></Route>
+              component={({ match }) => this.checkParam(match)}></Route>
             <Route>Page Not Found</Route>
           </Switch>
         </span>
