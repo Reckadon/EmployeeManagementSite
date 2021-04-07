@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Store from "../../DataStorage";
+import Notification from "../Notification";
 
 const ExportData = () => {
   const [encodedEmployees, setEncodedEmployees] = useState(null);
+  const [notif, setNotif] = useState(null);
 
   useEffect(() => {
     let encoded = "data:text/json;charset=utf-8,"; //for download
@@ -11,6 +13,7 @@ const ExportData = () => {
     );
     setEncodedEmployees(encoded);
   }, []);
+
   return (
     <fieldset>
       <legend>
@@ -25,10 +28,12 @@ const ExportData = () => {
             navigator.clipboard.writeText(
               JSON.stringify(Store.getEmployees(), undefined, 4)
             );
+            setNotif("Copied!");
           }}>
           <i className="fas fa-copy"></i>
         </button>
         <a
+          onClick={() => setNotif("Downloaded!")}
           className="sideButton"
           href={encodedEmployees}
           download="EmployeesData.json"
@@ -36,6 +41,11 @@ const ExportData = () => {
           <i className="fas fa-file-download"></i>
         </a>
       </div>
+      {notif && (
+        <Notification time={5000} onClose={() => setNotif(null)}>
+          {notif}
+        </Notification>
+      )}
     </fieldset>
   );
 };

@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   box-sizing: border-box;
+  overflow: hidden;
 }
 input,
 select,
@@ -38,6 +39,7 @@ input[type="number"] {
   display: flex;
   height: 100%;
 }
+
 /*scrollbar*/
 ::-webkit-scrollbar {
   width: 11px;
