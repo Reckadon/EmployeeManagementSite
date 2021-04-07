@@ -19,24 +19,20 @@ class Container extends Component {
         </div>
         <TopNav />
         <div id="content">
-          <Switch>
-            <Route exact path="/">
-              <Suspense fallback={<LoadingSpinner />}>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Switch>
+              <Route exact path="/">
                 <Dashboard />
-              </Suspense>
-            </Route>
-            <Route path="/employees">
-              <Suspense fallback={<LoadingSpinner />}>
+              </Route>
+              <Route path="/employees">
                 <Employees />
-              </Suspense>
-            </Route>
-            <Route path="/settings">
-              <Suspense fallback={<LoadingSpinner />}>
+              </Route>
+              <Route exact path="/settings">
                 <Settings />
-              </Suspense>
-            </Route>
-            <Route component={Error404} />
-          </Switch>
+              </Route>
+              <Route component={Error404} />
+            </Switch>
+          </Suspense>
         </div>
       </div>
     );
