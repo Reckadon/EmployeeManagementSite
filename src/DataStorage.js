@@ -62,10 +62,12 @@ export default class Store {
   static getEmployeeByID(targetID) {
     //takes NUMBER ID
     //returns Employee Object
-    const employeesArray = JSON.parse(localStorage.getItem("employees"))
-      .employees;
+    const employeesArray = this.getEmployees();
     const employee = employeesArray.find(employee => employee.id === targetID);
-    if (employee === undefined) return;
+    if (employee === undefined) {
+      console.warn("Employee not found: ", targetID);
+      return;
+    }
     return new Employee(employee);
   }
 }

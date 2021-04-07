@@ -4,11 +4,11 @@ import Store from "../../DataStorage";
 import Employee from "../../EmployeeClass";
 import "./styles/ProfilePage.css";
 
-const ProfilePage = ({ match, onEmployeeRemoved, onEdited }) => {
+const ProfilePage = ({ match, onEdited, onEmployeeRemoved }) => {
   const name = match.params.name;
 
   const [employee, setEmployee] = useState(() =>
-    Store.getEmployeeByID(Number(name.slice(-1)))
+    Store.getEmployeeByID(Number(name.slice(name.lastIndexOf("-") + 1)))
   ); //using function to get employee only once
   const [editable, setEditable] = useState(false);
   const [isChanged, setIsChanged] = useState(false);

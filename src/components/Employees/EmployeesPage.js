@@ -7,19 +7,23 @@ import Error404 from "../Error404";
 import FilterWidget from "./FilterWidget";
 import LoadingSpinner from "../LoadingSpinner";
 import "./styles/employees.css";
+import Notification from "../Notification";
 const ProfilePage = lazy(() => import("./ProfilePage"));
 
 class Employees extends Component {
   //employees page handling employees list and user profiles from dynamic URIs
   state = {
+    loading: true,
     employees: [],
     filter: "none",
     filteredEmployees: [],
     sort: "none",
     sortedEmployees: [],
+    notif: null,
   };
   load() {
     this.setState({ employees: Store.getEmployees() }, this.filter);
+    this.setState({ loading: true });
   }
 
   filter() {
@@ -96,7 +100,7 @@ class Employees extends Component {
         sortedEmployees = filteredEmployees;
         break;
     }
-    this.setState({ sortedEmployees });
+    this.setState({ sortedEmployees }, () => this.setState({ loading: false }));
   }
 
   componentDidMount() {
@@ -118,10 +122,14 @@ class Employees extends Component {
         <Route exact path="/employees">
           {/* '/employees' */}
           <div id="main">
-            <EmployeeList
-              employees={this.state.sortedEmployees}
-              isEmpty={this.state.employees.length === 0}
-            />
+            {this.state.loading ? (
+              <LoadingSpinner />
+            ) : (
+              <EmployeeList
+                employees={this.state.sortedEmployees}
+                isEmpty={this.state.employees.length === 0}
+              />
+            )}
           </div>
           <div id="side">
             <FilterWidget
@@ -132,6 +140,13 @@ class Employees extends Component {
             />
             <AddEmployee onEmployeeAdded={this.refresh} />
           </div>
+          {this.state.notif && (
+            <Notification
+              time={5000}
+              onClose={() => this.setState({ notif: null })}>
+              {this.state.notif}
+            </Notification>
+          )}
         </Route>
         <Route
           exact
@@ -143,8 +158,11 @@ class Employees extends Component {
                 <React.Fragment>
                   <ProfilePage
                     match={match}
-                    onEmployeeRemoved={this.refresh}
                     onEdited={this.refresh}
+                    onEmployeeRemoved={() => {
+                      this.refresh();
+                      this.setState({ notif: "Employee Removed!" });
+                    }}
                   />
                 </React.Fragment>
               ) : (
