@@ -9,10 +9,17 @@ const ExportData = () => {
   useEffect(() => {
     let encoded = "data:text/json;charset=utf-8,"; //for download
     encoded += encodeURIComponent(
-      JSON.stringify(Store.getEmployees(), undefined, 4)
+      JSON.stringify(Store.getData(), undefined, 4)
     );
     setEncodedEmployees(encoded);
   }, []);
+
+  function getDate() {
+    const date = new Date();
+    return `EmployeesData(${date.getDate()}-${
+      date.getMonth() + 1
+    }-${date.getFullYear()}).json`;
+  }
 
   return (
     <fieldset>
@@ -26,7 +33,7 @@ const ExportData = () => {
           title="Copy"
           onClick={() => {
             navigator.clipboard.writeText(
-              JSON.stringify(Store.getEmployees(), undefined, 4)
+              JSON.stringify(Store.getData(), undefined, 4)
             );
             setNotif("Copied!");
           }}>
@@ -36,7 +43,7 @@ const ExportData = () => {
           onClick={() => setNotif("Downloaded!")}
           className="sideButton"
           href={encodedEmployees}
-          download="EmployeesData.json"
+          download={getDate()}
           title="Download">
           <i className="fas fa-file-download"></i>
         </a>

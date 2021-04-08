@@ -50,6 +50,12 @@ export default class Store {
     return JSON.parse(localStorage.getItem("employees")).employees;
   }
 
+  static getData() {
+    //for exporting
+    this.initializeStore();
+    return JSON.parse(localStorage.getItem("employees"));
+  }
+
   static setEmployees(newEmployees) {
     let data = JSON.parse(localStorage.getItem("employees"));
     data.employees = newEmployees;
