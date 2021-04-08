@@ -134,6 +134,11 @@ const ProfilePage = ({ match, onEdited, onEmployeeRemoved }) => {
                   color: employee.onLeave ? "#ec0000" : "#014968",
                   cursor: "pointer",
                 }}
+                tabIndex="0"
+                onKeyPress={e => {
+                  if (e.key === "Enter")
+                    handleChange({ onLeave: !employee.onLeave });
+                }}
                 onClick={() =>
                   handleChange({ onLeave: !employee.onLeave })
                 }></i>
@@ -177,7 +182,7 @@ const ProfilePage = ({ match, onEdited, onEmployeeRemoved }) => {
             <div className="buttonsGrpProfilePage">
               {window.screen.width > 480 ? (
                 <span>
-                  <span onClick={handleDetailsCopy}>
+                  <span onClick={handleDetailsCopy} tabIndex="0">
                     <i
                       className="fa fa-copy"
                       style={{ paddingRight: "3px" }}></i>
