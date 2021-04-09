@@ -20,7 +20,7 @@ export default class Store {
     let data = JSON.parse(localStorage.getItem("employees"));
     data.employees.push(employee);
     data.id = Number(data.id) + 1;
-    localStorage.setItem("employees", JSON.stringify(data));
+    this.setData(data);
   }
 
   static updateEmployee(employee) {
@@ -62,6 +62,10 @@ export default class Store {
     if (newEmployees.length === 0) {
       data.id = 1;
     }
+    this.setData(data);
+  }
+
+  static setData(data) {
     localStorage.setItem("employees", JSON.stringify(data));
   }
 

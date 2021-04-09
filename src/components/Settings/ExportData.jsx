@@ -24,7 +24,8 @@ const ExportData = () => {
   return (
     <fieldset>
       <legend>
-        Export Data <i className="fa fa-file-export"></i>
+        Export Data
+        <i className="fa fa-file-export" style={{ paddingLeft: "5px" }}></i>
       </legend>
       <div className="settingsRow">
         <span>Copy or Download Employees data as JSON: </span>
@@ -44,7 +45,8 @@ const ExportData = () => {
           className="sideButton"
           href={encodedEmployees}
           download={getDate()}
-          title="Download">
+          title="Download"
+          style={{ boxSizing: "border-box" }}>
           <i className="fas fa-file-download"></i>
         </a>
       </div>
