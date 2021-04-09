@@ -1,0 +1,38 @@
+#modalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.548);
+  animation: fade-in 200ms ease forwards;
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation: fade-in 200ms ease forwards;
+
+  box-sizing: border-box;
+  background-color: rgb(0 40 68);
+  width: 50%;
+  max-width: 2000px;
+  height: 70%;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

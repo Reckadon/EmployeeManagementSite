@@ -118,62 +118,64 @@ class Employees extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/employees">
-          {/* '/employees' */}
-          <div id="main">
-            {this.state.loading ? (
-              <LoadingSpinner />
-            ) : (
-              <EmployeeList
-                employees={this.state.sortedEmployees}
-                isEmpty={this.state.employees.length === 0}
-              />
-            )}
-          </div>
-          <div id="side">
-            <FilterWidget
-              filter={this.state.filter}
-              onFilterChange={this.handleFilterChange}
-              sort={this.state.sort}
-              onSortChange={this.handleSortChange}
-            />
-            <AddEmployee onEmployeeAdded={this.refresh} />
-          </div>
-          {this.state.notif && (
-            <Notification
-              time={5000}
-              onClose={() => this.setState({ notif: null })}>
-              {this.state.notif}
-            </Notification>
-          )}
-        </Route>
-        <Route
-          exact
-          path="/employees/:name"
-          // '/employees/xyz' dynamic URIs
-          component={({ match }) => (
-            <Suspense fallback={<LoadingSpinner />}>
-              {this.isParam(match) ? (
-                <React.Fragment>
-                  <ProfilePage
-                    match={match}
-                    onEdited={this.refresh}
-                    onEmployeeRemoved={() => {
-                      this.refresh();
-                      this.setState({ notif: "Employee Removed!" });
-                    }}
-                  />
-                </React.Fragment>
+      <>
+        <Switch>
+          <Route exact path="/employees">
+            {/* '/employees' */}
+            <div id="main">
+              {this.state.loading ? (
+                <LoadingSpinner />
               ) : (
-                <Error404 />
+                <EmployeeList
+                  employees={this.state.sortedEmployees}
+                  isEmpty={this.state.employees.length === 0}
+                />
               )}
-            </Suspense>
-          )}></Route>
-        <Route>
-          <Error404 />
-        </Route>
-      </Switch>
+            </div>
+            <div id="side">
+              <FilterWidget
+                filter={this.state.filter}
+                onFilterChange={this.handleFilterChange}
+                sort={this.state.sort}
+                onSortChange={this.handleSortChange}
+              />
+              <AddEmployee onEmployeeAdded={this.refresh} />
+            </div>
+          </Route>
+          <Route
+            exact
+            path="/employees/:name"
+            // '/employees/xyz' dynamic URIs
+            component={({ match }) => (
+              <Suspense fallback={<LoadingSpinner />}>
+                {this.isParam(match) ? (
+                  <React.Fragment>
+                    <ProfilePage
+                      match={match}
+                      onEdited={this.refresh}
+                      onEmployeeRemoved={() => {
+                        this.refresh();
+                        this.setState({ notif: "Employee Removed!" });
+                      }}
+                    />
+                  </React.Fragment>
+                ) : (
+                  <Error404 />
+                )}
+              </Suspense>
+            )}></Route>
+          <Route>
+            <Error404 />
+          </Route>
+        </Switch>
+        {this.state.notif && (
+          <Notification
+            time={5000}
+            onClose={() => this.setState({ notif: null })}>
+            {this.state.notif}
+          </Notification>
+        )}
+      </>
     );
   }
   isParam(match) {
