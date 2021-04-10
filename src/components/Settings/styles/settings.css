@@ -47,6 +47,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  outline: none;
 }
 .settingsDiv fieldset > .settingsRow > .sideButton:hover {
   background-color: rgb(39, 121, 156);
@@ -56,4 +57,17 @@
 }
 .settingsDiv fieldset > .settingsRow > .sideButton:active {
   background-color: rgb(16, 61, 80);
+}
+
+.settingsDiv fieldset > .settingsRow > .clearButton {
+  background-color: rgb(212, 14, 14);
+}
+.settingsDiv fieldset > .settingsRow > .clearButton:hover {
+  background-color: rgb(255, 61, 61);
+}
+.settingsDiv fieldset > .settingsRow > .clearButton:active {
+  background-color: rgb(175, 0, 0);
+}
+.settingsDiv fieldset > .settingsRow > .clearButton:focus {
+  box-shadow: 0 0 0 3px rgb(149 211 236), 0 0 0 7px rgb(212, 14, 14);
 }

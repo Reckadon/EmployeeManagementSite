@@ -25,7 +25,7 @@ const ExportData = () => {
     <fieldset>
       <legend>
         Export Data
-        <i className="fa fa-file-export" style={{ paddingLeft: "5px" }}></i>
+        <i className="fa fa-file-export" style={{ paddingLeft: "8px" }}></i>
       </legend>
       <div className="settingsRow">
         <span>Copy or Download Employees data as JSON: </span>
