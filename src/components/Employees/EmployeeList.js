@@ -9,7 +9,29 @@ class EmployeeList extends Component {
   getContent() {
     const employees = this.props.employees;
     if (this.props.isEmpty) {
-      return <h2>No Data. Start by adding Employees!</h2>;
+      return (
+        <>
+          <h2>No Data. Start by adding Employees!</h2>
+          <h3>
+            Just visiting and need sample data? Click{" "}
+            <span
+              title="Get Sample Data"
+              onClick={this.props.onRequestSampleData}>
+              here
+            </span>
+            !
+          </h3>
+          <h5>
+            <i className="fa fa-vial"></i> Sample Data Powered by{" "}
+            <a
+              href="https://www.mockaroo.com/"
+              target="_blank"
+              rel="noreferrer">
+              Mockaroo <i className="fa fa-external-link-alt"></i>
+            </a>
+          </h5>
+        </>
+      );
     }
     // else
     return (

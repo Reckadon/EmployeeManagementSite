@@ -15,6 +15,7 @@ const Cleardata = () => {
   const handleClearData = () => {
     setShowClearModal(false);
     Store.setEmployees([]); //empty employees array
+    setNotif("Cleared Employees Data!");
   };
 
   return (

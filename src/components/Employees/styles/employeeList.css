@@ -24,10 +24,35 @@
 #employeesList h2 {
   color: var(--accent-color);
 }
-#employeesList h2 {
+#employeesList h2,
+#employeesList h3,
+#employeesList h5 {
   margin: 0px;
   padding: 20px;
+  padding-bottom: 0px;
 }
+#employeesList > h3 {
+  text-decoration: underline dotted;
+  color: var(--accent-color);
+}
+#employeesList > h3 > span,
+#employeesList > h5 > a {
+  color: rgb(0, 49, 87);
+  text-decoration: underline solid;
+  cursor: pointer;
+}
+#employeesList > h3 > span:hover,
+#employeesList > h5 > a:hover {
+  color: rgb(0, 96, 170);
+}
+
+#employeesList > h5 {
+  color: var(--accent-color);
+}
+#employeesList > h5 > a {
+  display: inline;
+}
+
 #employeesList td,
 #employeesList th {
   padding: 10px;

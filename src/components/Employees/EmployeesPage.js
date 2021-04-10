@@ -21,10 +21,11 @@ class Employees extends Component {
     sortedEmployees: [],
     notif: null,
   };
-  load() {
+
+  load = () => {
     this.setState({ employees: Store.getEmployees() }, this.filter);
     this.setState({ loading: true });
-  }
+  };
 
   filter() {
     const filter = this.state.filter;
@@ -100,15 +101,13 @@ class Employees extends Component {
         sortedEmployees = filteredEmployees;
         break;
     }
-    this.setState({ sortedEmployees }, () => this.setState({ loading: false }));
+    this.setState({ sortedEmployees }, this.setState({ loading: false }));
   }
 
   componentDidMount() {
     this.load();
   }
-  refresh = () => {
-    this.load();
-  };
+
   handleFilterChange = filter => {
     this.setState({ filter }, this.filter);
   };
@@ -129,6 +128,22 @@ class Employees extends Component {
                 <EmployeeList
                   employees={this.state.sortedEmployees}
                   isEmpty={this.state.employees.length === 0}
+                  onRequestSampleData={async () => {
+                    this.setState({
+                      loading: true,
+                    });
+
+                    await Store.setSampleData();
+                    this.load();
+
+                    this.setState({
+                      loading: false,
+                      notif: "Fetched Sample Data!",
+                    });
+
+                    //when sample data is retrieved and set in localStorage
+                    //load employees to state
+                  }}
                 />
               )}
             </div>
@@ -139,7 +154,7 @@ class Employees extends Component {
                 sort={this.state.sort}
                 onSortChange={this.handleSortChange}
               />
-              <AddEmployee onEmployeeAdded={this.refresh} />
+              <AddEmployee onEmployeeAdded={this.load} />
             </div>
           </Route>
           <Route
@@ -152,9 +167,9 @@ class Employees extends Component {
                   <React.Fragment>
                     <ProfilePage
                       match={match}
-                      onEdited={this.refresh}
+                      onEdited={this.load}
                       onEmployeeRemoved={() => {
-                        this.refresh();
+                        this.load();
                         this.setState({ notif: "Employee Removed!" });
                       }}
                     />
@@ -165,6 +180,7 @@ class Employees extends Component {
               </Suspense>
             )}></Route>
           <Route>
+            {/*any other not-handled route*/}
             <Error404 />
           </Route>
         </Switch>
