@@ -134,8 +134,8 @@ class Employees extends Component {
                     });
 
                     await Store.setSampleData();
-                    this.load();
 
+                    this.load();
                     this.setState({
                       loading: false,
                       notif: "Fetched Sample Data!",

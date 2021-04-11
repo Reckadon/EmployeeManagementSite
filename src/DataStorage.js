@@ -82,22 +82,22 @@ export default class Store {
   }
 
   static async setSampleData() {
-    const getObject = async () => {
-      const employees = await fetch(
-        "https://my.api.mockaroo.com/employee_management_system_sample_data.json?key=1ca54a00"
-      ).then(data => data.json());
-      const data = {
-        id: 16, //how many employees will get returned from api + 1
-        employees: employees.map(emp => {
-          return {
-            ...emp,
-            gender: emp.gender.toLowerCase(),
-          };
-        }),
-      };
-      return data;
+    const promise = await fetch(
+      "https://my.api.mockaroo.com/employee_management_system_sample_data.json?key=1ca54a00"
+    );
+    const employees = await promise.json();
+
+    const data = {
+      id: employees.length + 1, //how many employees will get returned from api + 1
+      employees: employees.map(emp => {
+        return {
+          ...emp,
+          gender: emp.gender.toLowerCase(), //gender is capital cased from api, so converting to lower
+        };
+      }),
     };
-    return Store.setData(await getObject()); //'Store' instead of 'this' as this is an async function
+
+    return Store.setData(data); //'Store' instead of 'this' as this is an async function
     // returns a promise
   }
 }
