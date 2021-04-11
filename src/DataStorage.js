@@ -142,7 +142,7 @@ export default class Store {
       }),
     };
 
-    return Store.setData(data); //'Store' instead of 'this' as this is an async function
+    return this.setData(data);
     // returns a promise
   }
 }
