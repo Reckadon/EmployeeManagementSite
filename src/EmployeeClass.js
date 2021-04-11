@@ -1,18 +1,20 @@
-/* 
-    id
-    first name
-    last name
-    designation
-    gender
-    age 
-    salary
-    onLeave
-    telephone number
-    email address
-    date employed
-*/
-
+/**
+ * Employee Object providing functions for fullname, date, etc.
+ */
 class Employee {
+  /**
+      id
+      first name
+      last name
+      designation
+      gender
+      age 
+      salary
+      onLeave
+      telephone number
+      email address
+      date employed
+  */
   constructor({
     id,
     fName,
@@ -47,9 +49,18 @@ class Employee {
       this.dateEmployed = dateEmployed;
     }
   }
+  /**
+   *
+   * @returns {String} -Fullname of the employee
+   */
   getFullName() {
     return this.fName + " " + this.lName;
   }
+
+  /**
+   *
+   * @returns {String} -Formatted date employed with month name
+   */
   getFormattedDate() {
     let date = this.dateEmployed;
     let formattedDate = date.slice(0, date.indexOf("/"));
@@ -58,6 +69,12 @@ class Employee {
     date = date.slice(date.indexOf("/") + 1);
     return formattedDate + " " + date;
   }
+
+  /**
+   *
+   * @param {Number} n -Month number
+   * @returns {String} -Month Name
+   */
   getMonthName = n => {
     const monthNames = [
       "January",
