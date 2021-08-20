@@ -1,7 +1,8 @@
 # Employee Management System
 
 Built using **ReactJS**
-
+---
+Collaborator : Wordshot 
 ---
 
 ## Hosted on:-
