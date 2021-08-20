@@ -164,16 +164,14 @@ class Employees extends Component {
             component={({ match }) => (
               <Suspense fallback={<LoadingSpinner />}>
                 {this.isParam(match) ? (
-                  <React.Fragment>
-                    <ProfilePage
-                      match={match}
-                      onEdited={this.load}
-                      onEmployeeRemoved={() => {
-                        this.load();
-                        this.setState({ notif: "Employee Removed!" });
-                      }}
-                    />
-                  </React.Fragment>
+                  <ProfilePage
+                    match={match}
+                    onEdited={this.load}
+                    onEmployeeRemoved={() => {
+                      this.load();
+                      this.setState({ notif: "Employee Removed!" });
+                    }}
+                  />
                 ) : (
                   <Error404 />
                 )}
