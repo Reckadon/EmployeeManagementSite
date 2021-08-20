@@ -35,6 +35,7 @@ nav > h1 > em {
   color: transparent;
   background: linear-gradient(290deg, rgb(152, 226, 255), rgb(61, 132, 255));
   background-size: 400% 400%;
+  -webkit-background-clip: text;
   background-clip: text;
   animation: rotateGradient 3s linear infinite alternate;
 }
