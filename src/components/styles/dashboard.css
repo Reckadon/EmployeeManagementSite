@@ -1,0 +1,74 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6.5px;
+}
+.subContainer1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 200px;
+  width: 97%;
+  background-color: rgba(0, 94, 131, 0.068);
+  margin-top: 0.6rem;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid rgba(1, 74, 105,0.01);
+}
+.keyCont {
+  height: 70px;
+  width: 200px;
+  background-color: rgb(1, 74, 105);
+  border-left: 5px solid rgb(2, 52, 71);
+  border-radius: 5px;
+}
+.keyContTitle {
+  color: #fff;
+  margin: 5px 0 -20px 0.4rem;
+}
+.keyContValue {
+  color: #fff;
+  margin-top: 12%;
+  margin-left: 0.4rem;
+}
+.subContainerWrapper {
+  height: 100%;
+  width: 97%;
+  display: flex;
+}
+.subContainer2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 65%;
+  background-color: rgba(0, 94, 131, 0.068);
+  margin-top: 0rem;
+  border-radius: 1rem;
+  margin-right: 0.5rem;
+  border: 2px solid rgba(1, 74, 105,0.01);
+}
+.subContainer3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 35%;
+  background-color: rgba(0, 94, 131, 0.068);
+  margin-top: 0rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(1, 74, 105,0.01);
+  flex-direction: column;
+}
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@700&display=swap');
+
+.ageGraphLabel{
+  margin-top: 20px;
+  letter-spacing: .5px;
+  font-size: 2rem;
+  font-family: 'Azeret Mono';
+}
