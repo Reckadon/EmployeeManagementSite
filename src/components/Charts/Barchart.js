@@ -4,7 +4,7 @@ import "../styles/dashboard.css";
 
 const BarChart = () => {
   return (
-    <div>
+    <div className="barGraph" >
       <Bar
         data={{
           labels: ["2017", "2018", "2019", "2020", "2021"],
