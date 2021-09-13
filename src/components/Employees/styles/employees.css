@@ -1,5 +1,6 @@
 .filterWidget {
   width: 100%;
+  max-width: 450px;
   display: flex;
   margin-bottom: 15px;
   flex-direction: column;
@@ -38,6 +39,7 @@
   background-color: rgb(1, 74, 105);
   color: white;
   width: 100%;
+  max-width: 450px;
   padding: 5px;
   border-radius: 10px;
   border: 0px;
@@ -71,6 +73,7 @@
 #addEmployeeForm {
   box-sizing: border-box;
   width: 96%;
+  max-width: 410px;
   margin-top: -10px;
   margin-bottom: 20px;
   padding: 0px 10px;

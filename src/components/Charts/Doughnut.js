@@ -1,6 +1,6 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import "../styles/dashboard.css";
+import "../Dashboard/dashboard.css";
 
 const DoughnutChart = () => {
   return (
@@ -11,24 +11,24 @@ const DoughnutChart = () => {
           datasets: [
             {
               label: "Age Graph",
-              data: [267,173,89],
+              data: [267, 173, 89],
               backgroundColor: [
                 "rgb(58, 124, 165)",
                 "rgb(4, 139, 168)",
                 "rgb(47, 102, 144)",
               ],
-              hoverOffset: 4
+              hoverOffset: 4,
             },
           ],
         }}
         height={300}
         width={300}
         style={{
-          marginBottom:"20px",
-          textAlign:"center",
+          marginBottom: "20px",
+          textAlign: "center",
         }}
         options={{
-            maintainAspectRatio:false,
+          maintainAspectRatio: false,
         }}
       />
     </div>

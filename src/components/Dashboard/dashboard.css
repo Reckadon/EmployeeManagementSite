@@ -1,0 +1,105 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+.subContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 94, 131, 0.068);
+  margin-top: 0rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 2px solid rgba(1, 74, 105, 0.01);
+}
+.subContainer1 {
+  justify-content: space-around;
+  height: 150px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.subContainerWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.subContainer2 {
+  height: 400px;
+  margin-right: 0.5rem;
+  flex: 2;
+}
+.subContainer3 {
+  height: 400px;
+  flex-direction: column;
+  flex: 1;
+}
+.keyCont {
+  height: 70px;
+  width: 200px;
+  background-color: rgb(1, 74, 105);
+  border-left: 5px solid rgb(2, 52, 71);
+  border-radius: 5px;
+}
+.keyContTitle {
+  color: #fff;
+  margin: 5px 0 -20px 0.4rem;
+}
+.keyContValue {
+  color: #fff;
+  margin-top: 12%;
+  margin-left: 0.4rem;
+}
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@700&display=swap");
+
+.ageGraphLabel {
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+  font-family: "Azeret Mono";
+}
+
+@media only screen and (max-width: 1190px) {
+  .subContainer1 {
+    flex-wrap: wrap;
+  }
+  .subContainerWrapper {
+    flex-direction: column;
+  }
+  .subContainer2 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .subContainer3 {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 885px) {
+  .mainContainer {
+    padding: 5px;
+    padding-top: 8px;
+    align-items: unset;
+  }
+  .barGraph {
+    height: 100%;
+    width: 100%;
+  }
+  .keyCont {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 5px;
+  }
+  .keyContValue {
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 518px) {
+  .subContainer1 {
+    height: 100%;
+  }
+}

@@ -1,10 +1,10 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import "../styles/dashboard.css";
+import "../Dashboard/dashboard.css";
 
 const BarChart = () => {
   return (
-    <div className="barGraph" >
+    <div className="barGraph">
       <Bar
         data={{
           labels: ["2017", "2018", "2019", "2020", "2021"],
